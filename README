@@ -12,3 +12,12 @@ brew install sox
 Install the node modules::
 
 npm install
+
+Start the BPM server with:
+
+./bpm_server.js 170
+
+Then start some clients e.g.
+
+./bpm_client3.js
+
