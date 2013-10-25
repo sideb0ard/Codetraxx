@@ -1,3 +1,14 @@
 Codetraxx - making traxx with codezzz
 
 requires a running RabbitMQ instance
+brew install rabbitmq
+
+start it up:
+rabbitmq-server
+
+requires sox
+brew install sox
+
+Install the node modules::
+
+npm install

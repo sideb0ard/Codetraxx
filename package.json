@@ -1,0 +1,12 @@
+{
+  "name": "codetraxx",
+  "preferGlobal": true,
+  "version": "0.0.1",
+  "author": "Sideb0ard <thorsten@theb0ardside.com>",
+  "description": "Audio framwork based on rabbitmq",
+  "dependencies" : {
+    "baudio": "1.1.x",
+    "plucky": "0.1.x",
+    "amqp": "0.1.x"
+  }
+}
