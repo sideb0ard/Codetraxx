@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var amqp = require('./amqp_connection');
+var amqp = require('./codetraxx_lib.js');
 
 var bpm = process.argv[2];
 if(typeof bpm == 'undefined') {
@@ -16,6 +16,6 @@ setInterval(function() {
   currentTick = tick % 8;
   if (currentTick === 0) {currentTick = 8;}
   console.log("Sending tick -- " + currentTick);
-  amqp.publish("bpm:" + bpm + "||tick" +  tick + "||currentTick" + currentTick);
+  amqp.publish("bpm:" + bpm + "||tick:" +  tick + "||currentTick:" + currentTick);
   tick++;
 },ticks);
