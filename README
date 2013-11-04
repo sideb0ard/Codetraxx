@@ -19,5 +19,6 @@ Start the BPM server with:
 
 Then start some clients e.g.
 
-./bpm_client3.js
+./drum_machine.js
+./hihatz.js
 
