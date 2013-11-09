@@ -69,6 +69,10 @@ function sawtooth (x) {
   return t % (1 / x) * x * 2 - 1;
 }
 
+function randyNum(num) {
+    return Math.floor((Math.random()*num)+1);
+}
+
 function playrrr (sound_file) {
   var cmd = "play " + sound_file;
   console.log(cmd);
@@ -83,3 +87,4 @@ module.exports.sin = sin;
 module.exports.square = square;
 module.exports.sawtooth = sawtooth;
 module.exports.playrrr = playrrr;
+module.exports.randyNum = randyNum;
