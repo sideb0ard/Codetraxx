@@ -1,6 +1,7 @@
 var amqp = require('amqp');
 
 var config = {
+  // rabbitUrl:'amqp://guest:@169.254.41.134',
   rabbitUrl:'amqp://guest:@localhost',
   queueName:'bpm'
 };
@@ -38,21 +39,18 @@ function publish(msg, conn) {
   });
 }
 
-function subscribe(exchange, conn) {
+function subscribe(musicalFunction, conn) {
   console.log("Subbbbing...");
   if (conn === undefined) {
     conn = createConnection();
   }
   conn.on('ready', function() {
-    console.log("Subscribing to " + exchange);
-    conn.exchange(exchange, {type: 'fanout', autoDelete: true}, function(exch) {
+    conn.exchange(config.queueName, {type: 'fanout', autoDelete: true}, function(exch) {
       conn.queue('tmp-' + Math.random(), {exclusive: true},function(queue){
-        queue.bind(exchange, '');
-        console.log('[*] -- waiting for the dataz.');
-
-        queue.subscribe(function(msg) {
-          console.log("[*] %s", msg.data.toString('utf-8'));
-        });
+        //console.log("Made it into queue");
+        //console.log("musicalFunction is ..." + typeof musicalFunction);
+        queue.bind('bpm', '');
+        queue.subscribe(musicalFunction);
       });
     });
   });

@@ -5,6 +5,7 @@ var connection = amqp.createConnection({host: 'localhost'});
 
 var sys = require('sys');
 var exec = require('child_process').exec;
+var hat = "/Users/thorsten/Code/Codetraxx/wavs/Hihat0003.aif"
 function puts(error, stdout, stderr) { sys.puts(stdout); }
 
 function randyNum(num) {
@@ -21,7 +22,7 @@ connection.on('ready', function(){
 
             queue.subscribe(function(msg){
                 if ( Math.round(Math.random()*1) ) {
-                  exec("/usr/local/bin/play /Users/thorsten/Code/Codetraxx/wavs/tick.wav chorus 0.7 0.9 55 0.4 0.25 2 -t");
+                  exec("play " + hat + " chorus 0.7 0.9 55 0.4 0.25 2 -t");
                   // exec("/usr/local/bin/play /Users/thorsten/Code/Codetraxx/wavs/tick.wav");
                 }
                 //console.log("%s", msg.data.toString('utf-8'));

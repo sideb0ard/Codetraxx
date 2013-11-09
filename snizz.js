@@ -29,8 +29,13 @@ connection.on('ready', function(){
                 var sin_two = randyNum(357);
                 console.log ("SINZ == " + sin_one + " " + sin_two);
                 if ( Math.round(Math.random()*1) ) {
+                  if ( Math.round(Math.random()*1) ) {
                   // exec("play -n synth 1 sin " + sin_one + " sin " + sin_two);
-                  exec("play -n synth 1 sin 347 sin 457");
+                    exec("play -n synth 1 sin 347 sin 457 phaser 0.8 0.74 3 0.4 0.5 −t");
+                  } else {
+                    exec("play -n synth 1 sin 447 sin 477 chorus 0.7 0.9 55 0.4 0.25 2 -t");
+                  }
+                  // exec("play -n synth 1 sin 300-3300");
                 }
             });
         });
