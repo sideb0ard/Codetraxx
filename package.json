@@ -5,6 +5,7 @@
   "author": "Sideb0ard <thorsten@theb0ardside.com>",
   "description": "Audio framwork based on rabbitmq",
   "dependencies" : {
-    "amqp": "0.1.x"
+    "amqp": "0.1.x",
+    "baudio": "*"
   }
 }

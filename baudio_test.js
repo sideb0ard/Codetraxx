@@ -1,18 +1,22 @@
 #!/usr/bin/env node
 
 var codetraxx = require('./codetraxx_lib.js');
-var exec = require('child_process').exec;
+var baudio = require('baudio');
 
-var KICK = "wavs/kick.wav";
-var SNARE = "wavs/SnareDrum0012.aif";
+var n = 0;
+var b = baudio(function (t) {
+  var x = Math.sin(t * 262 + Math.sin(n));
+  n += Math.sin(t);
+  return x;
+});
 
 codetraxx.subscribe( function(msg) {
   var bpm = msg.bpm, tick = msg.tick, currentTick = msg.currentTick;
   console.log("BPM: " + bpm + " TICK: " + tick + " CURRENT TICK: " + currentTick);
 
-  if (/[1357]/.test(currentTick)) {
-    exec("play " + KICK);
-  } else if (/[2468]/.test(currentTick)) {
-    exec("play " + SNARE);
+  if (currentTick === 1) {
+    b.play();
   }
+
+
 });

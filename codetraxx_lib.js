@@ -25,12 +25,12 @@ function safeEndConnection(connection) {
 
 
 function publish(msg, conn) {
-  console.log("starting..");
+  //console.log("starting..");
   if (conn === undefined) {
     conn = createConnection();
   }
   conn.on('ready', function () {
-    console.log("Sending message...");
+    // console.log("Sending message..." + JSON.stringify(msg));
     conn.exchange(config.queueName, {type: 'fanout', autoDelete: true},
       function(exchange){
         exchange.publish('',msg);
@@ -47,8 +47,6 @@ function subscribe(musicalFunction, conn) {
   conn.on('ready', function() {
     conn.exchange(config.queueName, {type: 'fanout', autoDelete: true}, function(exch) {
       conn.queue('tmp-' + Math.random(), {exclusive: true},function(queue){
-        //console.log("Made it into queue");
-        //console.log("musicalFunction is ..." + typeof musicalFunction);
         queue.bind('bpm', '');
         queue.subscribe(musicalFunction);
       });

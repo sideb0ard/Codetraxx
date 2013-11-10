@@ -15,8 +15,8 @@ var tick = 1;
 setInterval(function() {
   currentTick = tick % 8;
   if (currentTick === 0) {currentTick = 8;}
-  tickrrr = "bpm:" + bpm + "||tick:" +  tick + "||currentTick:" + currentTick;
-  console.log("Sending tickrrr -- " + tickrrr);
-  amqp.publish(tickrrr);
+  var msg = {"bpm": bpm, "tick": tick, "currentTick": currentTick};
+  console.log("Sending msg -- " + JSON.stringify(msg));
+  amqp.publish(msg);
   tick++;
 },ticks);
