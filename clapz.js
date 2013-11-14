@@ -7,16 +7,14 @@ var exec = require('child_process').exec;
 var CLAP = "wavs/Clap.aif";
 
 codetraxx.subscribe( function(msg) {
-  console.log(msg);
-  var infoArr = /bpm:(\d*)\|\|tick:(\d*)\|\|currentTick:(\d*)/.exec(msg.data.toString('utf-8'));
-  var bpm = infoArr[1];
-  var tick = infoArr[2];
-  var currentTick = infoArr[3];
+  var bpm = msg.bpm, tick = msg.tick, currentTick = msg.currentTick;
+  console.log("BPM: " + bpm + " TICK: " + tick + " CURRENT TICK: " + currentTick);
 
-  if (msg.data.toString('utf-8').match("currentTick:[157]")) {
+  if (/[37]/.test(currentTick)) {
+    if (tick % 7 === 0 || tick % 3 === 0) {
     console.log("boo");
     exec("play " + CLAP);
+    }
   }
-
 
 });

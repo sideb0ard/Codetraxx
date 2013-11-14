@@ -13,6 +13,6 @@ for(t=0;; t++) {
   // numm = t * ((t>>12|t>>8)&63&t>>4);
   numm = t*(t>>((t>>9)|(t>>8))&(63&(t>>4)));
   // numm = formula;
-  // exec("echo " + numm + sox, puts);
+  exec("echo " + numm + sox, puts);
   console.log(numm);
 }
