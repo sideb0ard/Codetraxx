@@ -22,16 +22,16 @@ codetraxx.subscribe( function(msg) {
     if (beat % 7 === 0 || beat % 3 === 0 ) {
       console.log("Modulo beatches!");
       exec("play " + KICK2 + " " + KICK3 + " bass +3");
-      //playrrr(KICK2,KICK3);
     } else {
       playrrr(KICK);
     }
   } else if (/[2468]/.test(beat) && microTick == 1) {
-    //console.log("Snare! on the " + currentTick);
     randNum = codetraxx.randyNum(40);
-    // console.log("randy == " + randNum);
     setTimeout( function() {
       return playrrr(SNARE);
     },randNum);
+  } else if (/[5]/.test(beat) && microTick == 3 && Math.round(Math.random()*1)) {
+    console.log("SNEAKY!");
+    exec("play " + KICK2 + " " + KICK3 + " bass +3");
   }
 });
