@@ -5,10 +5,7 @@ var sys = require('sys');
 var exec = require('child_process').exec;
 
 codetraxx.subscribe(function(msg) {
-  var infoArr = /bpm:(\d*)\|\|tick:(\d*)\|\|currentTick:(\d*)/.exec(msg.data.toString('utf-8'));
-  var bpm = infoArr[1];
-  var tick = infoArr[2];
-  var currentTick = infoArr[3];
+  var bpm = msg.bpm, tick = msg.tick, currentTick = msg.currentTick;
   console.log("BPM:: " + bpm + " TICK:: " + tick + " CURRENTTICK:: " + currentTick);
 
   var sin_one = codetraxx.randyNum(347);

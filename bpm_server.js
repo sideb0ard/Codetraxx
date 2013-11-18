@@ -9,14 +9,18 @@ if(typeof bpm == 'undefined') {
 console.log("Setting bpm to " + bpm);
 
 var MIN = 60000;
-var ticks = MIN / bpm;
-var tick = 1;
+var tickLength =  (MIN / bpm ) / 4;
+var tickCounter = 1;
 
 setInterval(function() {
-  currentTick = tick % 8;
-  if (currentTick === 0) {currentTick = 8;}
-  var msg = {"bpm": bpm, "tick": tick, "currentTick": currentTick};
+  beatTick = tickCounter % 32;
+  if (beatTick === 0) {beatTick = 32;}
+  beat = Math.floor((beatTick + 3) / 4);
+  // 
+  microTick = tickCounter % 4;
+  if (microTick === 0) {microTick = 4;}
+  var msg = {"bpm": bpm, "microTick": microTick, "tickLength": tickLength, "beat": beat, "tickCounter": tickCounter};
   console.log("Sending msg -- " + JSON.stringify(msg));
   amqp.publish(msg);
-  tick++;
-},ticks);
+  tickCounter++;
+},tickLength);
