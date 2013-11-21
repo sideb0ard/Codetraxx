@@ -16,20 +16,10 @@ var baudio_funct = function(tickCounter) {
   var b = baudio(function (tt, tickCounter) {
     console.log("TICKCOUNTER:: " + tickCounter);
     donk = (tickCounter / 266666);
-    //console.log("DONK " + donk);
-    //console.log("TT " + tt);
-    // var t = donk % 8;
     var t = donk % 3;
-    // console.log(typeof tt);
-    //console.log("TT:: " + tt);
-//    var OGt = tt % 8;
-    //var t = tickCounter % 8;
-//    console.log("T:: " + t);
-//    console.log("OGT:: " + OGt);
-
     var n = t % 7;
-    // var xs = [ 120, 240, 450, 20 ];
-    var xs = [ 74, 773, 50, 4 ];
+    var xs = [ 120, 1, 240, 450, 20 ];
+    // var xs = [ 74, 773, 50, 4 ];
     // var xs = [ 74, tickCounter, 50, 4 ];
 
     var speed = tt % 8 > 7 ? 16 : 2;
