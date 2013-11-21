@@ -13,8 +13,8 @@ function playrrr(wav){
 codetraxx.subscribe( function(msg) {
   var bpm = msg.bpm, microTick = msg.microTick, tickCounter = msg.tickCounter, beat = msg.beat;
   console.log("BPM: " + bpm + " MICROTICK: " + microTick + " TICK COUNTER: " + tickCounter + " and BEAT is: " + beat);
-  randNum = codetraxx.randyNum(20);
-  if (Math.floor(tickCounter % 14)) {
+  randNum = codetraxx.randyNum(7);
+  if (Math.floor(tickCounter % 3 === 0)) {
     if ( Math.round(Math.random()*1) ) {
       if (beat % 7 === 0) {
         console.log("REVERSE!");
