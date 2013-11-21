@@ -15,8 +15,6 @@ var baudio_funct = function() {
   })
   b.play();
 
-
-
 };
 
 codetraxx.subscribe( function(msg) {
