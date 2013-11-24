@@ -1,8 +1,8 @@
 var amqp = require('amqp');
 
 var config = {
-  rabbitUrl:'amqp://guest:@172.16.10.74',
-  //rabbitUrl:'amqp://guest:@localhost',
+  //rabbitUrl:'amqp://guest:@172.16.10.74',
+  rabbitUrl:'amqp://guest:@localhost',
   queueName:'bpm'
 };
 
@@ -24,14 +24,14 @@ function safeEndConnection(connection) {
 };
 
 
-function publish(msg, conn) {
+function publish(qname, msg, conn) {
   //console.log("starting..");
   if (conn === undefined) {
     conn = createConnection();
   }
   conn.on('ready', function () {
     // console.log("Sending message..." + JSON.stringify(msg));
-    conn.exchange(config.queueName, {type: 'fanout', autoDelete: true},
+    conn.exchange(qname, {type: 'fanout', autoDelete: true},
       function(exchange){
         exchange.publish('',msg);
         safeEndConnection(conn);

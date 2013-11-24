@@ -14,19 +14,10 @@ var baudio_funct = function(tickCounter) {
 
   // nowplaying = 0;
   var b = baudio(function (tt, tickCounter) {
-    // donk = (tickCounter / 77677); // plinky plonk
-    var donk;
-    if (Math.round(Math.random()*1)) {
-      donk = (tickCounter / 77677);
-    } else {
-      donk = (tickCounter / 440);
-    }
-    //console.log("donk:: " + donk);
-
+    donk = (tickCounter / 7076);
     var t = donk % 5;
-    var n = t % 7;
-    // var xs = [ (1200 / t), t, 240, 450, 20 ]; // works
-    var xs = [ (1200 / t), donk, 240, 450, n * tau ];
+    //var n = t % 7;
+    var xs = [ 120, 1, 240, 450, 20 ];
 
     var speed = tt % 8 > 7 ? 16 : 2;
     var x = xs[Math.floor(t*speed)%xs.length]
@@ -34,11 +25,14 @@ var baudio_funct = function(tickCounter) {
 
     //var f = x + Math.sin(z * (t % 1));
 
-    var noisee = 0.95 * Math.sin(tau * x * tickCounter) % 3;
-    //codetrax.publish('bzz', noisee);
-    // nowplaying = 0;
-    return (noisee);
+    return (
+        //0.15 * Math.sin(tau * t * f)
+        0.95 * Math.sin(tau * x * tickCounter) % 3
+    );
 
+    //function sin (x) {
+    //    return Math.sin(tau * t * x);
+    //}
 });
 
    b.play();

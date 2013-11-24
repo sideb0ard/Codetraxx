@@ -14,21 +14,22 @@ var baudio_funct = function(tickCounter) {
   // console.log(typeof tickCounter); 
 
   var b = baudio(function (tt, tickCounter) {
-    console.log("TICKCOUNTER:: " + tickCounter);
-    donk = (tickCounter / 266666);
+    // console.log("TICKCOUNTER:: " + tickCounter);
+    donk = (tickCounter / 1774);
     var t = donk % 3;
     var n = t % 7;
     // var xs = [ 120, 1, 240, 450, 20 ];
     // var xs = [ 74, 773, 50, 4 ];
-    var xs = [ 74, tickCounter, 50, 4 , 3 ];
+    var xs = [ 74, tickCounter, donk, 4 , 3 ];
 
-    var speed = tt % 8 > 7 ? 16 : 2;
+    var speed = tt % 3 > 7 ? 16 : 2;
     var x = xs[Math.floor(t*speed)%xs.length]
     var z = tt % 8 < 7 ? 1000 : 80;
 
     var f = x + Math.sin(z * (t % 1));
     // var f = x + Math.sin(z * (t  % 1));
 
+    nowplaying = 0;
     return (
         // 73 * Math.sin(tau * f)
         0.15 * Math.sin(tau * t * f)

@@ -21,6 +21,6 @@ setInterval(function() {
   if (microTick === 0) {microTick = 4;}
   var msg = {"bpm": bpm, "microTick": microTick, "tickLength": tickLength, "beat": beat, "tickCounter": tickCounter};
   console.log("Sending msg -- " + JSON.stringify(msg));
-  amqp.publish(msg);
+  amqp.publish('bpm',msg);
   tickCounter++;
 },tickLength);
