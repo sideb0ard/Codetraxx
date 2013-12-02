@@ -17,22 +17,23 @@ var baudio_funct = function(tickCounter) {
     donk = (tickCounter / 7076);
     var t = donk % 5;
     //var n = t % 7;
-    var xs = [ 120, 1, 240, 450, 20 ];
+    var xs = [ 120, 14, 740, 450, 20 ];
 
     var speed = tt % 8 > 7 ? 16 : 2;
     var x = xs[Math.floor(t*speed)%xs.length]
-    //var z = tt % 8 < 7 ? 1000 : 80;
+    var z = tt % 8 < 7 ? 1000 : 80;
 
     //var f = x + Math.sin(z * (t % 1));
 
     return (
+        sin(x * z * donk );
         //0.15 * Math.sin(tau * t * f)
-        0.95 * Math.sin(tau * x * tickCounter) % 3
+        //z * 0.95 * Math.sin(tau * x * tickCounter) % 3
     );
 
-    //function sin (x) {
-    //    return Math.sin(tau * t * x);
-    //}
+    function sin (x) {
+        return Math.sin(tau * t * x);
+    }
 });
 
    b.play();

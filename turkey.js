@@ -27,15 +27,15 @@ var baudio_funct = function(tickCounter) {
 
     //var f = x + Math.sin(z * (t % 1));
 
-	function sin (x) {
+    function sin (x) {
         return Math.sin(tau * (t % 32) * x);
     }
 
-	function square (x) {
+    function square (x) {
         var n = Math.sin(tau * (t % 32) * x);
         return n > 0 ? 1 : -1;
     }
-    
+
     function sawtooth (x) {
         return (t % 32) % (1 / x) * x * 2 - 1;
     }
@@ -63,7 +63,7 @@ codetraxx.subscribe( function(msg) {
   if (/[8]/.test(beat) && /[4]/.test(microTick) && !nowplaying) {
    console.log("hola");
    //baudio_funct(tickCounter);
-exec("play -n synth 2.5 sin 667 gain 1 bend .35,180,.25  .15,740,.53  0,-520,.3");
+   exec("play -n synth 2.5 sin 667 gain 1 bend .35,180,.25  .15,740,.53  0,-520,.3");
 
 //sta_puft.play()
 }
