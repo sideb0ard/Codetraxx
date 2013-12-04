@@ -6,14 +6,15 @@ var baudio  = require('baudio');
 
 var tau = Math.PI * 2;
 
-var baudio_funct = function(tickCounter) {
+var baudio_funct = function(tickCounter,bpm) {
 
   // console.log("TICKCOUNTER:: " + tickCounter);
   nowplaying = 1;
-  console.log("TICKCOUNTER:: " + tickCounter);
+  // console.log("TICKCOUNTER:: " + tickCounter);
+  console.log("// tickCOunter:: " + tickCounter + " BPM:: " + bpm);
 
-  // nowplaying = 0;
-  var b = baudio(function (tt, tickCounter) {
+  nowplaying = 0;
+  var b = baudio(function (tickCounter,bpm) {
     donk = (tickCounter / 7076);
     var t = donk % 5;
     //var n = t % 7;
@@ -26,7 +27,7 @@ var baudio_funct = function(tickCounter) {
     //var f = x + Math.sin(z * (t % 1));
 
     return (
-        sin(x * z * donk );
+        sin(x * z * donk )
         //0.15 * Math.sin(tau * t * f)
         //z * 0.95 * Math.sin(tau * x * tickCounter) % 3
     );
@@ -36,7 +37,9 @@ var baudio_funct = function(tickCounter) {
     }
 });
 
-   b.play();
+  nowplaying = 0;
+
+   //b.play();
 
 };
 
@@ -46,7 +49,7 @@ codetraxx.subscribe( function(msg) {
 
   if (/[15]/.test(beat) && /[1]/.test(microTick) && !nowplaying) {
    console.log("hola");
-   baudio_funct(tickCounter);
+   baudio_funct(tickCounter,bpm);
   }
 
 });
