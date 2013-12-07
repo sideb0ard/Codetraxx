@@ -27,7 +27,7 @@ codetraxx.subscribe( function(msg) {
     }
   } else if (/[5]/.test(beat) && /[3]/.test(microTick) && Math.round(Math.random()*1)) {
       playrrr(KICK3);
-  } else if (/[26]/.test(beat) && /[12]/.test(microTick)) {
+  } else if (/[6]/.test(beat) && /[12]/.test(microTick)) {
     //randNum = codetraxx.randyNum(40);
     //var CUR_SNARE = "SNARE" + codetraxx.randyNum(3);
     //console.log("CURSNARE :" + CUR_SNARE);

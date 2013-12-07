@@ -1,44 +1,18 @@
 #!/usr/bin/env node
 
-var codetraxx = require('./codetraxx_lib.js');
-var nowplaying = 0;
-var baudio  = require('baudio');
+var exec = require('child_process').exec;
+var sox = " | sox -r 8000 -b 8 -c 1 -t raw -s - -d";
 
-var tau = Math.PI * 2;
+function puts(error, stdout, stderr) { sys.puts(stdout) }
 
-codetraxx.subscribe( function(msg) {
-  var bpm = msg.bpm, microTick = msg.microTick, tickCounter = msg.tickCounter, beat = msg.beat;
-  //console.log("BPM: " + bpm + " BEAT: " + beat + " MICROTICK: " + microTick + " TICKCOUNTER: " + tickCounter);
+formula = process.argv[2];
 
-  if (/[15]/.test(beat) && /[1]/.test(microTick) && !nowplaying) {
-   nowplaying = 1;
-   var b = baudio(function (tt, tickCounter, bpm) {
-    // console.log("TICKCOUNTER:: " + tickCounter);
-    //donk = (tickCounter / bpm);
-    donk = (tickCounter / 57575.678678686786);
-    var t = donk % 5;
-    //var n = t % 7;
-    //var xs = [ 20, 13, donk, 240, tickCounter, 20 ];
-    //var xs = [ 13, 2, 3, 4, 5, 6, 8 ];
-    var xs = [ 3, 4, 3, 4, 7 ];
+console.log("FPRMLA::: " + formula);
 
-    var speed = tt % 5 > 7 ? 4 : 2;
-    var x = xs[Math.floor(t*speed)%xs.length]
-    var z = tt % 8 < 7 ? 1000 : 80;
-
-    var f = x + Math.sin(z * (t % 1));
-    var multi = tt * ( bpm / 60);
-
-      return (
-          0.15 * Math.sin(tau * t * f)
-      );
-
-      function sin (x) {
-          return Math.sin(tau * t * x);
-      }
-    });
-    b.play();
-
-  }
-
-});
+for(t=0;; t++) {
+  // numm = t * ((t>>12|t>>8)&63&t>>4);
+  numm = t*(t>>((t>>9)|(t>>8))&(63&(t>>4)));
+  // numm = formula;
+  exec("echo " + numm + sox, puts);
+  console.log(numm);
+}

@@ -4,7 +4,7 @@ var codetraxx = require('./codetraxx_lib.js');
 var exec = require('child_process').exec;
 
 var KICK = "wavs/TrpDrumz/Kicks/Kick_7_.wav";
-var KICK2 = "wavs/KickDrum0016.aif";
+var KICK2 = "wavs/WuTangDrumz/WTC_kyKX/Wu-RZA-Kick69.wav";
 var KICK3 = "wavs/KickDrum0013.aif";
 var SAMPLEZ = "wavs/TrpDrumz/DJDrops/DjDrop.wav";
 //var SNARE = "wavs/SnareDrum0012.aif";
@@ -24,7 +24,7 @@ codetraxx.subscribe( function(msg) {
       console.log("Modulo beatches!");
       exec("play " + KICK2 + " " + KICK3 + " bass +3");
     } else {
-      playrrr(KICK);
+      playrrr(KICK2);
     }
   } else if (/[2468]/.test(beat) && microTick == 1) {
     randNum = codetraxx.randyNum(4);

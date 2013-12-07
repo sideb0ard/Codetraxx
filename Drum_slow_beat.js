@@ -25,7 +25,7 @@ codetraxx.subscribe( function(msg) {
     } else {
       playrrr(KICK);
     }
-  } else if (/[234678]/.test(beat) && microTick == 1) {
+  } else if (/[2468]/.test(beat) && microTick == 1) {
     randNum = codetraxx.randyNum(40);
     setTimeout( function() {
       return playrrr(SNARE);
