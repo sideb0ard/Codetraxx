@@ -35,11 +35,14 @@ var baudio_funct = function(tickCounter,bpm) {
   //
   sound = sin(400);
 
+  console.log("SOUND:: " + sound);
+  cmd = sound + sox;
+  console.log(cmd);
+  exec("echo " + sound + sox);
+
   function sin (freq) {
     return Math.sin(tau * tickCounter * freq);
   }
-  console.log("SOUND:: " + sound);
-  exec("echo " + sound + sox);
 
 };
 
