@@ -18,18 +18,15 @@ codetraxx.subscribe( function(msg) {
   var bpm = msg.bpm, microTick = msg.microTick, tickCounter = msg.tickCounter, beat = msg.beat;
   console.log("BPM: " + bpm + " MICROTICK: " + microTick + " TICK COUNTER: " + tickCounter + " and BEAT is: " + beat);
 
-  if (/[135]/.test(beat) && microTick == 1) {
+  if (/[1357]/.test(beat) && microTick == 1) {
     console.log("MICROTICK IS A " + typeof microTick);
-    playrrr(KICK2);
-  } else if (/[7]/.test(beat) && microTick == 3) {
+    exec("play " + KICK3 + " bass +3");
+  } else if (/[37]/.test(beat) && microTick == 4) {
       exec("play " + KICK1 + " bass +3");
   } else if (/[2468]/.test(beat) && microTick == 1) {
     randNum = codetraxx.randyNum(4);
     setTimeout( function() {
       return playrrr(SNARE);
     },randNum);
-  } else if (/[8]/.test(beat) && microTick == 4 && Math.round(Math.random()*1)) {
-    console.log("SNEAKY!");
-    exec("play " + SAMPLEZ + " bass +1");
   }
 });
