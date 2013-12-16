@@ -3,7 +3,7 @@
 var codetraxx = require('./codetraxx_lib.js');
 var exec = require('child_process').exec;
 
-var e808s = ["wavs/TrpDrumz/808/808_3.wav","wavs/TrpDrumz/808/808_3.wav","wavs/TrpDrumz/808/808_10.wav"];
+var e808s = ["wavs/TrpDrumz/808/808_3.wav","wavs/TrpDrumz/808/808_3.wav","wavs/TrpDrumz/808/808_3.wav"];
 
 function playrrr(wav ){
   exec("play " + wav + " bass +7 echo 0.8 0.88 60 0.4");
