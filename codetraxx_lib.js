@@ -1,8 +1,8 @@
 var amqp = require('amqp');
 
 var config = {
-  rabbitUrl:'amqp://guest:@172.16.10.74',
-  //rabbitUrl:'amqp://guest:@localhost',
+  //rabbitUrl:'amqp://guest:@172.16.10.74',
+  rabbitUrl:'amqp://guest:@localhost',
   queueName:'bpm'
 };
 

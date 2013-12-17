@@ -6,6 +6,9 @@ var baudio  = require('baudio');
 
 var tau = Math.PI * 2;
 
+var waitCounter = 0;
+
+
 function decimalPlaces(num) {
   console.log("HERE!");
   //console.log("IN FUNC WITH " + num.toString());
@@ -23,50 +26,8 @@ codetraxx.subscribe( function(msg) {
     console.log("STARTING!");
 
     var b = baudio(function (tt, counter) {
-      var volume = 0.23;
 
-      //var tikMulti = ( bpm / 60 );
-      //var tikMod = tt % tikMulti;
-      //console.log("helllllla MODULO " + tikMod);
-      //console.log("TT + COUNTER " + tt + " " + counter);
 
-      //var floatRegex = /^\d+\.(\d+)$/;
-      //var floatRegex = /(\d+)/;
-//
-      //var intRegex = /^\d+$/;
-      //if(intRegex.test(tikMulti)) {
-      //  volume = 0;
-      //  console.log("INT! " + tikMulti);
-      //} else {
-      //  console.log(tikMulti);
-      //  var floatRegex = /^\d+\.\d+$/;
-      //  var digiCount = tikiMulti.match(floatRegex);
-      //  //console.log("DIGTCOUNT " + digiCount);
-      //}
-
-      //console.log(typeof tik);
-      //for(var propertyName in tik) {
-      //  console.log("PROPERTY: " + propertyName);
-      //}
-      //if (tik[0]) {
-      //  console.log("TIK 0 is ALIVE!");
-      //}
-      //var blah = tik[0];
-      //console.log("BLAHHH " + blah);
-      //console.log(tik.index);
-           // propertyName is what you want
-           //    // you can get the value like this: myObject[propertyName]
-           //    }
-           //
-      //var tik = decimalPlace(tt * bpm);
-      //var tik = /\.(\d+)/.exec((tt * bpm).toString());
-      //console.log("TT is " + tt + " // TIK IS " + tik);
-      //anotherTik = tik.toString();
-      //var anotherTik = tik.toString().split(",");
-      //console.log("ANOTHER TIK " + anotherTik);
-      //if (tik == 1) {
-      //  console.log("TICK HAS " + tik);
-      //}
       var multi = tt * ( bpm / 60);
       donk = (counter / 1774);
       var t = donk % 3;
@@ -82,16 +43,40 @@ codetraxx.subscribe( function(msg) {
       var f = x + Math.sin(z * (t % 1));
       // var f = x + Math.sin(z * (t  % 1));
 
+      //console.log("VOLUME " + volume);
       return (
           // 73 * Math.sin(tau * f)
           //0.15 * (sin(f)
-          0.15 * (sin(f)
-          + 0.1 * sin(t * (f * 2 + 4))
-          + (tt % (1/2) < 1/24 ? Math.random() : 0))
+          vol() * (sin(f))
+          //0 * (sin(f)
+          //volume * 1
+          //1 * 1
+          //volume * (sin(f)
+          //+ 0.1 * sin(t * (f * 2 + 4))
+          //+ (tt % (1/2) < 1/24 ? Math.random() : 0))
       );
 
       function sin (x) {
           return Math.sin(tau * multi * x);
+      }
+
+      function vol() {
+        var volume = .23;
+        var bps = ( 60 / bpm );
+        //var tikMod = tt % tikMulti;
+        //console.log("VOl!!");
+        modLangTimer = Math.floor(bpm * tt);
+        //if (modLangTimer % bpm == 0) {
+        if (tt >= waitCounter  && tt <= waitCounter + 1 ) {
+          volume = 0;
+          //console.log("TT " + tt + " WAITCOUNTER " + waitCounter + " VOLUME " + volume);
+        }else{
+          waitCounter = tt + 2;
+          //waitCounter += 2;
+          //console.log("** WAITCOUNTER " + waitCounter + " VOLUME " + volume + " TT " + tt);
+        }
+        //console.log("TT " + tt + " WAITCOUNTER " + waitCounter + " VOLUME " + volume);
+        return volume;
       }
       
     });
