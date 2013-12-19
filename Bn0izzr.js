@@ -6,8 +6,7 @@ var baudio  = require('baudio');
 
 var tau = Math.PI * 2;
 
-var waitCounter = 0;
-
+var timer = 0;
 
 function decimalPlaces(num) {
   console.log("HERE!");
@@ -41,13 +40,16 @@ codetraxx.subscribe( function(msg) {
       var z = tt % 8 < 7 ? 1000 : 80;
 
       var f = x + Math.sin(z * (t % 1));
+
+      //var v = vol();
       // var f = x + Math.sin(z * (t  % 1));
 
-      //console.log("VOLUME " + volume);
+      // console.log("REUTNRING : vol: " + v + " // SIN(f) : " + sin(f));
+      console.log("VOLUME " + volume);
       return (
           // 73 * Math.sin(tau * f)
           //0.15 * (sin(f)
-          vol() * (sin(f))
+          1 * (sin(f))
           //0 * (sin(f)
           //volume * 1
           //1 * 1
@@ -62,23 +64,18 @@ codetraxx.subscribe( function(msg) {
 
       function vol() {
         var volume = .23;
-        var bps = ( 60 / bpm );
-        //var tikMod = tt % tikMulti;
-        //console.log("VOl!!");
         modLangTimer = Math.floor(bpm * tt);
-        //if (modLangTimer % bpm == 0) {
-        if (tt >= waitCounter  && tt <= waitCounter + 1 ) {
+        if ((modLangTimer % bpm == 0) && ( tt <= timer )) {
           volume = 0;
-          //console.log("TT " + tt + " WAITCOUNTER " + waitCounter + " VOLUME " + volume);
-        }else{
-          waitCounter = tt + 2;
-          //waitCounter += 2;
-          //console.log("** WAITCOUNTER " + waitCounter + " VOLUME " + volume + " TT " + tt);
+          timer += 0.00020;
+          //console.log("MODLANGED! " + modLangTimer + " TIMER IZ " + timer);
+        } else if ( tt <= timer){
+          //console.log("ELSEIFFFED");
+          volume = 0;
         }
-        //console.log("TT " + tt + " WAITCOUNTER " + waitCounter + " VOLUME " + volume);
         return volume;
       }
-      
+
     });
 
     b.play();
