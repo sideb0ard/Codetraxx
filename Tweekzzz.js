@@ -29,7 +29,8 @@ codetraxx.subscribe( function(msg) {
 
      return (
            //0.74 * ( sin(100) * sin(multi) )
-           sin(multi) * sin(x) *  0.13
+           //sin(multi) * sin(x) *  0.13
+           sin(multi) * sin(x) *  1.13
            //sin(multi) * sin(x) *  sin(1)
      );
 
