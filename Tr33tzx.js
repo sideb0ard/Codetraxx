@@ -27,11 +27,12 @@ codetraxx.subscribe( function(msg) {
       // console.log(vol);
       return (
         //sin(multi) * sin(x) * t
-        sin(multi) * sin(x) * vol
+        //
+        sin(x) * vol
       );
 
       function sin (x) {
-        return Math.sin(tau * tt * x);
+        return Math.sin(tau * multi * x);
       }
     });
     b.play();

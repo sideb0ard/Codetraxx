@@ -10,23 +10,27 @@ codetraxx.subscribe( function(msg) {
   var bpm = msg.bpm, microTick = msg.microTick, tickCounter = msg.tickCounter, beat = msg.beat;
   //console.log("BPM: " + bpm + " BEAT: " + beat + " MICROTICK: " + microTick + " TICKCOUNTER: " + tickCounter);
 
-  if (/[1]/.test(beat) && /[1]/.test(microTick) && !nowplaying) {
+  // if (/[1]/.test(beat) && /[1]/.test(microTick) && !nowplaying) {
+  if (/[1]/.test(microTick) && !nowplaying) {
    nowplaying = 1;
    var b = baudio(function (tt, tickCounter) {
 
      //var xs = [ 30, 60, 90, 120, 700 ];
-     var xs = [ 347/47, 3/5 ]
-     var z = tickCounter % 13 < 7 ? 1200 : 13;
+     var xs = [ 34747, 3/5 ];
+     //var xs = [ 47, 3/5 , 0, 1477 ];
+     //var xs = [ 70 ];
+     var z = tickCounter % 7 < 4 ? 1200 : 13;
      var x = xs[Math.floor( tt * z * tau)  % xs.length]
      // var f = x + sin(z * (t % 1));
-     var multi = tt * ( bpm / 60) / tau;
+     var multi = tt * ( bpm / 60) ;
 
      return (
-           sin(multi) * sin(x) *  0.3713
+           //sin(multi) * sin(x) *  0.3713
+           sin(x) *  0.2713
      );
 
       function sin (x) {
-          return Math.sin(tau * tt * x);
+          return Math.sin(tau * multi * x);
       }
     });
     b.play();
