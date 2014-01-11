@@ -76,18 +76,18 @@ to ensure its listening on all interfaces --
   /usr/local/etc/rabbitmq/rabbitmq-env.conf
 
 make sure it has 
-  NODE_IP_ADDRESS=0.0.0.0
+    NODE_IP_ADDRESS=0.0.0.0
 
 Use ifconfig to find out the IP address of the person running RabbitMQ,
 then configure Codetraxx to connect to that IP in 
   codetraxx_lib.js
 
 At the top is a section called config, which looks like:
-
+```
   var config = {
     //rabbitUrl:'amqp://guest:@172.16.10.74',
     rabbitUrl:'amqp://guest:@localhost',
     queueName:'bpm'
   };
-
+```
 
