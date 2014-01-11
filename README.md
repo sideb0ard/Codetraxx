@@ -1,5 +1,6 @@
-Codetraxx - making traxx with codezzz - a work in progress
-==========================================================
+Codetraxx - making traxx with codezzz
+=====================================
+(a Work In Progress)
 
 This is a collection of different noise making programs which 
 commuicate and synchronize over RabbitMQ, a message queueing 
@@ -7,7 +8,7 @@ system. The programs all utilize [sox](http://sox.sourceforge.net/)
 and/or [baudio](https://github.com/substack/baudio) (which also uses sox).
 
 First you need a running RabbitMQ instance
-  brew install rabbitmq
+    brew install rabbitmq
 
 start it up:
   rabbitmq-server
