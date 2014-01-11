@@ -13,7 +13,7 @@ First you need a running RabbitMQ instance
 
 start it up:
 
-```rabbitmq-server```
+rabbitmq-server
 
 Install sox
 
