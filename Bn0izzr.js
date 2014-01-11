@@ -57,7 +57,7 @@ codetraxx.subscribe( function(msg) {
       //    //0 * (sin(f)
       //    //volume * 1
       //    //1 * 1
-        (sin(f))
+        (sin(f)) * 0.21
       //    //+ 0.1 * sin(t * (f * 2 + 4))
       //    //+ (tt % (1/2) < 1/24 ? Math.random() : 0))
       );
