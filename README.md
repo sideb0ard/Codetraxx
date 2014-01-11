@@ -6,6 +6,9 @@ This is a collection of different noise making programs which
 commuicate and synchronize over RabbitMQ, a message queueing 
 system. The programs all utilize [sox](http://sox.sourceforge.net/) 
 and/or [baudio](https://github.com/substack/baudio) (which also uses sox).
+The basic premise is that each program subscribes to the message queue
+and upon receiving a message you specify, it then takes an action such
+as playing a sample or starting an algorithm.
 
 First you need a running RabbitMQ instance
 ```
@@ -68,8 +71,8 @@ if (/[1234]/.test(microTick) )  {
 ```
 The second kind are based on Baudio which takes a stream of numbers and
 pipes them directly into Sox/play - usually by multiplying sine waves 
-together to see what happens. We have very little idea what we're up to and 
-just tweak numbers to see what happens.
+together. We have very little idea what we're up to and 
+just tweak numbers to see what happens!
 
 Collaboration and Config
 ------------------------
