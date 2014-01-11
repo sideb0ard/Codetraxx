@@ -12,15 +12,19 @@ First you need a running RabbitMQ instance
 ``` brew install rabbitmq```
 
 start it up:
-  rabbitmq-server
+
+```rabbitmq-server```
 
 Install sox
-  brew install sox
+
+```brew install sox```
 
 Clone this and install the needed node modules::
-  git clone git@github.com:sideb0ard/Codetraxx.git
-  cd Codetraxx
-  npm install
+```
+git clone git@github.com:sideb0ard/Codetraxx.git
+cd Codetraxx
+npm install
+```
 
 Done! Now to start making noise, you need something to 
 synchronize to - we're using a BPM Server which sends out 
