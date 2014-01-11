@@ -1,24 +1,85 @@
-Codetraxx - making traxx with codezzz
+Codetraxx - making traxx with codezzz - a work in progress
+==========================================================
 
-requires a running RabbitMQ instance
-brew install rabbitmq
+This is a collection of different noise making programs which 
+commuicate and synchronize over RabbitMQ, a message queueing 
+system. The programs all utilize [sox](http://sox.sourceforge.net/) 
+and/or [baudio](https://github.com/substack/baudio) (which also uses sox).
+
+First you need a running RabbitMQ instance
+  brew install rabbitmq
 
 start it up:
-rabbitmq-server
+  rabbitmq-server
 
-requires sox
-brew install sox
+Install sox
+  brew install sox
 
-Install the node modules::
+Install the needed node modules::
+  git clone git@github.com:sideb0ard/Codetraxx.git
+  cd Codetraxx
+  npm install
 
-npm install
+Done! Now to start making noise, you need something to 
+synchronize to - we're using a BPM Server which sends out 
+recurring timed messages, akin to a metronome - the message 
+contains a bpm, a beat (from 1 -8) and 4 microTicks for each beat e.g.:
+  {"bpm":80,"microTick":1,"tickLength":187.5,"beat":1,"tickCounter":1}
+
+You could start the bpm server by itself, however we also have
+a management launcher called Kingpin. Running a program under Kingpin
+will monitor the original file for changes and restart it when 
+any changes are made, allowing you to simply edit and save files for 
+changes to take effect.
+
 
 Start the BPM server with:
-
-./bpm_server.js 170
+  ./Kingpin.js BpmServer.js
 
 Then start some clients e.g.
+./Kingpin.js Drum_slow_beat.js
 
-./drum_machine.js
-./hihatz.js
+how about some noise..
+/Kingpin.js Twuuurk.js
+
+maybe some sound effects?
+./Kingpin.js FXFish.js
+
+you get the idea.
+
+There are a number of different noise producing programs in here.
+They fall into two different categories - one are more like sampler/drum machines - 
+watching for a particular beat message, so you could e.g program a drum beat by 
+playing a sample whenever microTick == 1   e.g
+  if (/[1234]/.test(microTick) )  {
+    play(KICKDRUM)
+  }
+The second kind are based on Baudio which takes a stream of numbers and
+pipes them directly into Sox/play - usually by multiplying sine waves 
+together to see what happens. We have very little idea what we're up to and 
+just tweak numbers to see what happens.
+
+Collaboration and Config
+------------------------
+
+It becomes even more fun you can synchronize with your buddy - 
+one of you run the RabbitMQ server - you might need to edit the config file
+to ensure its listening on all interfaces --
+  /usr/local/etc/rabbitmq/rabbitmq-env.conf
+
+make sure it has 
+  NODE_IP_ADDRESS=0.0.0.0
+
+Use ifconfig to find out the IP address of the person running RabbitMQ,
+then configure Codetraxx to connect to that IP in 
+  codetraxx_lib.js
+
+At the top is a section called config, which looks like:
+
+  var config = {
+    //rabbitUrl:'amqp://guest:@172.16.10.74',
+    rabbitUrl:'amqp://guest:@localhost',
+    queueName:'bpm'
+  };
+
 
