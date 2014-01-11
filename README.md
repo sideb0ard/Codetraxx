@@ -57,11 +57,11 @@ There are a number of different noise producing programs in here.
 They fall into two different categories - one are more like sampler/drum 
 machines watching for a particular beat message, so you could e.g 
 program a drum beat by playing a sample whenever microTick == 1  e.g
-
+```
 if (/[1234]/.test(microTick) )  {
     play(KICKDRUM)
   }
-
+```
 The second kind are based on Baudio which takes a stream of numbers and
 pipes them directly into Sox/play - usually by multiplying sine waves 
 together to see what happens. We have very little idea what we're up to and 
