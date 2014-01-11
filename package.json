@@ -4,6 +4,10 @@
   "version": "0.0.1",
   "author": "Sideb0ard <thorsten@theb0ardside.com>",
   "description": "Audio framwork based on rabbitmq",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/sideb0ard/Codetraxx"
+  },
   "dependencies" : {
     "amqp": "0.1.x",
     "baudio": "*",
