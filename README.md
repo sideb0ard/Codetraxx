@@ -104,5 +104,4 @@ Me and [Tack](https://twitter.com/tackyy) have been using a direct connect
 ethernet cable between our machines so as not to deal with any wi-fi latency.
 We're both running into a cheap Behringer 6 channel mixing desk, and using a
 Big Muff pedal as our effect send, which gives a nice nasty sound to the 
-output!
-<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/129020733&amp;color=ff6600&amp;auto_play=false&amp;show_artwork=true"></iframe>
+output! Check it [here](https://soundcloud.com/b0ardside/tuned-to-a-dead-channel)
