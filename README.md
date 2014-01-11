@@ -13,7 +13,7 @@ brew install rabbitmq
 
 start it up:
 
-```rabbitmq-server```
+rabbitmq-server
 
 Install sox
 
@@ -29,7 +29,9 @@ Done! Now to start making noise, you need something to
 synchronize to - we're using a BPM Server which sends out 
 recurring timed messages, akin to a metronome - the message 
 contains a bpm, a beat (from 1 -8) and 4 microTicks for each beat e.g.:
+```
   {"bpm":80,"microTick":1,"tickLength":187.5,"beat":1,"tickCounter":1}
+```
 
 You could start the bpm server by itself, however we also have
 a management launcher called Kingpin. Running a program under Kingpin
