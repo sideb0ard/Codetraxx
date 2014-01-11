@@ -36,11 +36,11 @@ codetraxx.subscribe( function(msg) {
         var match = pattern.exec(tikMod);
         //console.log("MATCH " + match);
         if (match === null) {
-          console.log("NULL MATE");
+          // console.log("NULL MATE");
         } else {
           //console.log(match[1]);
           if ( /\d+0000/.test(match[1]) ) {
-            console.log("SILENCE YOUUUUUUS! " + match[1]);
+            // console.log("SILENCE YOUUUUUUS! " + match[1]);
             vol = 0;
           }
         }

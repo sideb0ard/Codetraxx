@@ -12,6 +12,6 @@ codetraxx.subscribe( function(msg) {
   if (/[13578]/.test(beat) && microTick == 4 && Math.round(Math.random()*1)) {
     console.log("SKIP!");
   } else {
-    exec("play " + HATZ[0]);
+    exec("play " + HATZ[0] + " delay 1.5 0 0.5");
   }
 });
