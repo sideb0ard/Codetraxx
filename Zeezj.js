@@ -26,7 +26,7 @@ codetraxx.subscribe( function(msg) {
 
      return (
            //sin(multi) * sin(x) *  0.3713
-           sin(x) *  0.2713
+           sin(x) *  0.02713
      );
 
       function sin (x) {
