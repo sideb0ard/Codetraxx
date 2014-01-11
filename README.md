@@ -8,7 +8,7 @@ system. The programs all utilize [sox](http://sox.sourceforge.net/)
 and/or [baudio](https://github.com/substack/baudio) (which also uses sox).
 
 First you need a running RabbitMQ instance
-    brew install rabbitmq
+``` brew install rabbitmq```
 
 start it up:
   rabbitmq-server
