@@ -3,7 +3,7 @@ Codetraxx - making traxx with codezzz
 (a Work In Progress)
 
 This is a collection of different noise making programs which 
-commuicate and synchronize over RabbitMQ, a message queueing 
+communicate and synchronize over RabbitMQ, a message queueing 
 system. The programs all utilize [sox](http://sox.sourceforge.net/) 
 and/or [baudio](https://github.com/substack/baudio) (which also uses sox).
 The basic premise is that each program subscribes to the message queue
