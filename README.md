@@ -9,7 +9,7 @@ and/or [baudio](https://github.com/substack/baudio) (which also uses sox).
 
 First you need a running RabbitMQ instance
 
-``` brew install rabbitmq```
+```brew install rabbitmq```
 
 start it up:
 
@@ -20,6 +20,7 @@ Install sox
 ```brew install sox```
 
 Clone this and install the needed node modules::
+
 ```
 git clone git@github.com:sideb0ard/Codetraxx.git
 cd Codetraxx
