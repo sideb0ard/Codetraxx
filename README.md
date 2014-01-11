@@ -30,7 +30,7 @@ synchronize to - we're using a BPM Server which sends out
 recurring timed messages, akin to a metronome - the message 
 contains a bpm, a beat (from 1 -8) and 4 microTicks for each beat e.g.:
 ```
-  {"bpm":80,"microTick":1,"tickLength":187.5,"beat":1,"tickCounter":1}
+{"bpm":80,"microTick":1,"tickLength":187.5,"beat":1,"tickCounter":1}
 ```
 
 You could start the bpm server by itself, however we also have
@@ -40,17 +40,21 @@ any changes are made, allowing you to simply edit and save files for
 changes to take effect.
 
 Start the BPM server with:
-  ./Kingpin.js BpmServer.js
-
+```
+./Kingpin.js BpmServer.js
+```
 Then start some clients e.g.
+```
 ./Kingpin.js Drum_slow_beat.js
-
+```
 how about some noise..
-/Kingpin.js Twuuurk.js
-
+```
+./Kingpin.js Twuuurk.js
+```
 maybe some sound effects?
+```
 ./Kingpin.js FXFish.js
-
+```
 you get the idea.
 
 There are a number of different noise producing programs in here.
@@ -73,15 +77,18 @@ Collaboration and Config
 It becomes even more fun you can synchronize with your buddy - 
 one of you run the RabbitMQ server - you might need to edit the config file
 to ensure its listening on all interfaces --
-  /usr/local/etc/rabbitmq/rabbitmq-env.conf
-
+```
+/usr/local/etc/rabbitmq/rabbitmq-env.conf
+```
 make sure it has 
-    NODE_IP_ADDRESS=0.0.0.0
-
+```
+NODE_IP_ADDRESS=0.0.0.0
+```
 Use ifconfig to find out the IP address of the person running RabbitMQ,
 then configure Codetraxx to connect to that IP in 
-  codetraxx_lib.js
-
+```
+codetraxx_lib.js
+```
 At the top is a section called config, which looks like:
 ```
   var config = {
