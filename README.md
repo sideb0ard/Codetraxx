@@ -24,7 +24,7 @@ brew install sox
 ```
 Clone this and install the needed node modules::
 ```
-git clone git@github.com:sideb0ard/Codetraxx.git
+git clone https://github.com/sideb0ard/Codetraxx.git
 cd Codetraxx
 npm install
 ```
