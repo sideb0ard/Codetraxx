@@ -106,4 +106,4 @@ We're both running into a cheap Behringer 6 channel mixing desk, and using a
 Big Muff pedal as our effect send, which gives a nice nasty sound to the 
 output! Check it [here](https://soundcloud.com/b0ardside/tuned-to-a-dead-channel)
 
-[rig](http://theb0ardside.com/static/img/codetraxx_rig.jpeg)
+![rig](http://theb0ardside.com/static/img/codetraxx_rig.jpeg)
