@@ -18,20 +18,17 @@ codetraxx.subscribe( 'bpm', function(msg) {
     // var b = baudio(function (tt, counter) {
     var n = 0;
     var b = baudio(function (t) {
-      var xs = [ t, 444, 330 ];
+      var xs = [ t, 440, t * t ];
       var x = xs[Math.floor( t * 33) % xs.length];
       // var x = Math.sin((t / bpm) * 262 + Math.sin(n));
       // var x = Math.sin((t * ( bpm / 60 )) * 77 + Math.sin(n));
       var multi = t * ( bpm / 120);
       n += Math.sin(t / 0.22);
       // n += Math.sin(t * ( bpm / 120));
-      var mx = { "val": x};
-      console.log("Sending msg -- " + JSON.stringify(mx));
-      codetraxx.publish('tr33tzx',mx);
-      return sin(1) * 0.4;
+      // codetraxx.publish('zork',{"val": x});
+      return sin(x) * 0.4;
       function sin (x) {
-        // return Math.sin(tau * multi * x);
-        return Math.sin(tau * x);
+        return Math.sin(tau * multi * x);
       }
     });
     b.play();

@@ -13,15 +13,18 @@ function playrrr(wav){
 codetraxx.subscribe( 'bpm', function(msg) {
   var bpm = msg.bpm, microTick = msg.microTick, tickCounter = msg.tickCounter, beat = msg.beat;
   console.log("BPM: " + bpm + " MICROTICK: " + microTick + " TICK COUNTER: " + tickCounter + " and BEAT is: " + beat);
+  //playrrr(HATZ[Math.floor(Math.random()*HATZ.length)]);
+  //playrrr(HATZ[1]);
+  exec("play " + HATZ[Math.floor(Math.random()*HATZ.length)] + " " + HATZ[0] + " reverse");
   randNum = codetraxx.randyNum(7);
   if (Math.floor(tickCounter % 3 === 0)) {
     if ( Math.round(Math.random()*1) ) {
       if (beat % 7 === 0) {
         console.log("REVERSE!");
-        exec("play " + HATZ[2] + " " + HATZ[0] + " reverse");
+        exec("play " + HATZ[Math.floor(Math.random()*HATZ.length)] + " " + HATZ[0] + " reverse");
       } else {
         console.log("Random!");
-        setTimeout(playrrr(HATZ[0]), 3);
+        setTimeout(playrrr(HATZ[Math.floor(Math.random()*HATZ.length)]), 3);
       }
     } else {
       console.log("Nomr!" + randNum);

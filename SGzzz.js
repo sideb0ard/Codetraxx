@@ -17,12 +17,14 @@ codetraxx.subscribe( 'bpm', function(msg) {
       var multiplier = (t * (bpm / 60)) / 2;
       //console.log("T is " + t + " MULTIPLIER is " + multiplier);
 
-      var n = (Math.sin(multiplier * 2) + 1) * 4;
-      var xs = [ 20, 70, 7, 540, n / 300 ];
-      //var xs = [ 20, 10, 32, 50, 30 ];
+      var n = 47 / t;
+      // var xs = [ 20, 70, 7, 540, n / 300 ];
+      // var xs = [ 540, n / 300 ];
+      var xs = [ 20, 10, 32, 50, 30 ];
       var x = xs[Math.floor(multiplier*8)%xs.length];
-      var f = x + Math.sin(17 * (n % 1));
-      return x * sin(f / 13 ) * 0.002;
+      var f = x + Math.sin(17 * (n % 7));
+      //return x * sin(f / 13 ) * 0.02;
+      return sin(x) * 0.2;
 
       function sin (freq) {
         //return Math.sin(tau * t * freq);

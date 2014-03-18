@@ -5,8 +5,8 @@ var config = {
   rabbitUrl:'amqp://guest:@localhost',
 };
 
-function createConnection() {
-  return amqp.createConnection({url:config.rabbitUrl});
+function createConnection(qname) {
+  return amqp.createConnection(qname);
 }
 
 function safeEndConnection(connection) {
@@ -26,7 +26,7 @@ function safeEndConnection(connection) {
 function publish(qname, msg, conn) {
   //console.log("starting..");
   if (conn === undefined) {
-    conn = createConnection();
+    conn = createConnection(qname);
   }
   conn.on('ready', function () {
     // console.log("Sending message..." + JSON.stringify(msg));
@@ -41,7 +41,7 @@ function publish(qname, msg, conn) {
 function subscribe(qname, musicalFunction, conn) {
   console.log("Subbbbing to " + qname + "...");
   if (conn === undefined) {
-    conn = createConnection();
+    conn = createConnection(qname);
   }
   conn.on('ready', function() {
     conn.exchange(qname, {type: 'fanout', autoDelete: true}, function(exch) {
