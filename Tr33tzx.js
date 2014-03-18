@@ -6,7 +6,7 @@ var baudio  = require('baudio');
 
 var tau = Math.PI * 2;
 
-codetraxx.subscribe( function(msg) {
+codetraxx.subscribe( 'bpm', function(msg) {
   var bpm = msg.bpm, microTick = msg.microTick, tickCounter = msg.tickCounter, beat = msg.beat;
   //console.log("BPM: " + bpm + " BEAT: " + beat + " MICROTICK: " + microTick + " TICKCOUNTER: " + tickCounter);
 
@@ -15,7 +15,8 @@ codetraxx.subscribe( function(msg) {
 
     var b = baudio(function (tt, counter) {
 
-      donk = (counter / 57575.678678686786);
+      // donk = (counter / 57575.678678686786);
+      donk = (counter / 5732325.678678686786);
       var t = donk % 5;
       var xs = [ donk, t, donk, donk, counter, 20 ];
 

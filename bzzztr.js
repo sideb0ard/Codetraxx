@@ -45,7 +45,7 @@ var baudio_funct = function(tickCounter) {
 
 };
 
-codetraxx.subscribe( function(msg) {
+codetraxx.subscribe( 'bpm', function(msg) {
   var bpm = msg.bpm, microTick = msg.microTick, tickCounter = msg.tickCounter, beat = msg.beat;
   console.log("BPM: " + bpm + " BEAT: " + beat + " MICROTICK: " + microTick + " TICKCOUNTER: " + tickCounter);
 

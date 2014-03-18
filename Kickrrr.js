@@ -13,7 +13,7 @@ function playrrr(wav ){
 
 var i = 0;
 
-codetraxx.subscribe( function(msg) {
+codetraxx.subscribe( 'bpm', function(msg) {
   var bpm = msg.bpm, microTick = msg.microTick, tickCounter = msg.tickCounter, beat = msg.beat;
   console.log("BPM: " + bpm + " MICROTICK: " + microTick + " TICK COUNTER: " + tickCounter + " and BEAT is: " + beat);
   console.log("I!! " + i);

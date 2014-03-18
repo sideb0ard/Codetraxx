@@ -8,7 +8,7 @@ var tau = 2 * Math.PI;
 var bpm = false;
 var firstTick = false;
 
-codetraxx.subscribe( function(msg) {
+codetraxx.subscribe( 'bpm', function(msg) {
 	if(!firstTick){
 		firstTick = msg.tickCounter;
 	}

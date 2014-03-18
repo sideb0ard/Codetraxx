@@ -15,7 +15,7 @@ function decimalPlaces(num) {
   //return match;
 }
 
-codetraxx.subscribe( function(msg) {
+codetraxx.subscribe('bpm', function(msg) {
   var bpm = msg.bpm, microTick = msg.microTick, tickCounter = msg.tickCounter, beat = msg.beat;
   //console.log("BPM: " + bpm + " BEAT: " + beat + " MICROTICK: " + microTick + " TICKCOUNTER: " + tickCounter);
   if (beat === 1 && microTick === 1 && !nowplaying) {

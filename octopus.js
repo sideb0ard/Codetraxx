@@ -12,7 +12,7 @@ var melody = [0, 440, 880, 220, 0, 220, -220, 330].map(function(x) {
 var bpm = false;
 var firstTick = false;
 
-codetraxx.subscribe(function(msg) {
+codetraxx.subscribe('bpm', function(msg) {
 	if (!firstTick) {
 		firstTick = msg.tickCounter;
 	}

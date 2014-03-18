@@ -9,7 +9,7 @@ function playrrr(wav) {
 	exec("play " + wav + " bass +7 echo 0.8 0.88 60 0.4");
 }
 
-codetraxx.subscribe(function(msg) {
+codetraxx.subscribe('bpm', function(msg) {
 	var bpm = msg.bpm,
 		microTick = msg.microTick,
 		tickCounter = msg.tickCounter,
