@@ -30,7 +30,8 @@ function publish(exchg, msg, conn) {
     conn.exchange(exchg, {type: 'fanout', autoDelete: true},
       function(exchange){
         exchange.publish('',msg);
-        safeEndConnection(conn);
+        //exchange.disconnect();
+        //safeEndConnection(conn);
     });
   });
 }

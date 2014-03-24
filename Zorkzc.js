@@ -22,13 +22,14 @@ codetraxx.subscribe( 'bpm', function(msg) {
       var x = xs[Math.floor( t * 33) % xs.length];
       // var x = Math.sin((t / bpm) * 262 + Math.sin(n));
       // var x = Math.sin((t * ( bpm / 60 )) * 77 + Math.sin(n));
-      var multi = t * ( bpm / 120);
+      var multi = t / bpm;
       n += Math.sin(t / 0.22);
       // n += Math.sin(t * ( bpm / 120));
       // codetraxx.publish('zork',{"val": x});
-      return sin(x) * 0.4;
-      function sin (x) {
-        return Math.sin(tau * multi * x);
+      var vol = "0." + Math.floor(t % 16);
+      return sin(x,vol);
+      function sin (x,vol) {
+        return Math.sin(tau * multi * x) * vol;
       }
     });
     b.play();

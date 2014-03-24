@@ -17,7 +17,7 @@ codetraxx.subscribe( 'bpm', function(msg) {
     console.log("SKIP!");
   } else {
     setTimeout( function() {
-      return playrrr(HATZ[0]);
+      return playrrr(HATZ[1]);
     },randNum);
     // exec("play " + HATZ[0]);
   }

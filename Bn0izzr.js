@@ -33,21 +33,18 @@ codetraxx.subscribe('bpm', function(msg) {
       //var donk = (counter / 1774); // WORKS
       // var donk = (counter / 1674); // WORKS
       //var t = tt % 3;
-      //var xs = [ 77, 12, 240, 45, -2 ];
-      var xs = [ 74, 773, 50, 4 ];
+      var xs = [ 77, 12, 240, 45, -2 ];
+      //var xs = [ 74, 773, 50, 4 ];
       //var xs = [ n * 13, counter -n, t ]; // , donk, 4 , 3 ];
       //var xs = [ 770, donk, 478 ] ;
 
-      var speed = t % 3 > 7 ? 16 : 2;
+      var speed = t % 0.3 > 7 ? 16 : 2;
       var x = xs[Math.floor(t*speed)%xs.length]
       //var x = xs[Math.floor(Math.random() * (xs.length + 1)) ];
       ////var x = xs[0];
       //var z = tt % 8 < 7 ? 1000 : 80;
 
       //var f = x + Math.sin(z * (t % 1));
-
-      ////var v = vol();
-      // var f = x + Math.sin(z * (t  % 1));
 
       // console.log("REUTNRING : vol: " + v + " // SIN(f) : " + sin(f));
       var vol = "0." + Math.floor(t % 8);
