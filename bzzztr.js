@@ -34,7 +34,7 @@ var baudio_funct = function(tickCounter) {
 
     //var f = x + Math.sin(z * (t % 1));
 
-    var noisee = 0.95 * Math.sin(tau * x * tickCounter) % 3;
+    var noisee = 0.15 * Math.sin(tau * x * (t / bpm));
     //codetrax.publish('bzz', noisee);
     // nowplaying = 0;
     return (noisee);

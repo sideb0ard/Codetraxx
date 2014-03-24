@@ -12,6 +12,10 @@ codetraxx.subscribe( 'bpm', function(msg) {
   if (/[13578]/.test(beat) && microTick == 4 && Math.round(Math.random()*1)) {
     console.log("SKIP!");
   } else {
-    exec("play " + HATZ[0] + " delay 1.5 0 0.5");
+    console.log("PLAY!");
+    //exec("play " + HATZ[0] + " chorus " + (tickCOunter % 0.7) * 7 + (tickCounter % 0.9) + 70 + " 35 0.4 0.25 2 -t");
+    //exec("play " + HATZ[0] + " chorus 7 " + (tickCounter % 0.9) + " 35 0.4 0.25 2 -t");
+    exec("play " + HATZ[0] + " chorus 7 0.9 35 0.4 0.25 2 -t");
+    //exec("play " + HATZ[0]);
   }
 });

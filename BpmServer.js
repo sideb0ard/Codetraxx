@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-var amqp = require('./codetraxx_lib.js');
+var amqp = require('./codetraxx_lib');
 
-var bpm = 60;
+var bpm = 120;
 console.log("Setting bpm to " + bpm);
 
 var MIN = 60000;
@@ -12,11 +12,10 @@ setInterval(function() {
   beatTick = tickCounter % 32;
   if (beatTick === 0) {beatTick = 32;}
   beat = Math.floor((beatTick + 3) / 4);
-  // 
   microTick = tickCounter % 4;
   if (microTick === 0) {microTick = 4;}
   var msg = {"bpm": bpm, "microTick": microTick, "tickLength": tickLength, "beat": beat, "tickCounter": tickCounter};
   console.log("Sending msg -- " + JSON.stringify(msg));
-  amqp.publish('bpm',msg);
+  amqp.publish('bpm', msg);
   tickCounter++;
 },tickLength);
