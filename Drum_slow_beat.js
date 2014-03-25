@@ -5,6 +5,7 @@ var exec = require('child_process').exec;
 
 var KICK = "wavs/WuTangDrumz/WTC_kyKX/Wu-RZA-Kick64.wav";
 var HATZ = "wavs/WuTangDrumz/Perkussin/Wu-RZA-Hat74.wav";
+var HATZ = "wavs/WuTangDrumz/Perkussin/Wu-RZA-Hat7.wav";
 var KICK2 = "wavs/KickDrum0016.aif";
 var KICK3 = "wavs/KickDrum0013.aif";
 //var SNARE = "wavs/SnareDrum0012.aif";
@@ -20,12 +21,14 @@ codetraxx.subscribe( 'bpm', function(msg) {
   console.log("BPM: " + bpm + " MICROTICK: " + microTick + " TICK COUNTER: " + tickCounter + " and BEAT is: " + beat);
 
   if (/[134567]/.test(beat) && /[134]/.test(microTick) )  {
+  //if (/[16]/.test(beat) && /[134]/.test(microTick) )  {
     console.log("MICROTICK IS A " + typeof microTick);
     if (beat % 7 === 0 || beat % 3 === 0 ) {
       console.log("Modulo beatches!");
-      exec("play " + HATZ + " bass +3");
+      //exec("play " + HATZ + " bass +" + tickCounter % .23);
     } else {
-      playrrr(HATZ);
+      exec("play " + HATZ + " " + HATZ2 + " bass +" + tickCounter % .3);
+      // playrrr(HATZ);
     }
   } else if (/[15]/.test(beat) && /[123]/.test(microTick) ) {
       //exec("play " + KICK + " bass +3");

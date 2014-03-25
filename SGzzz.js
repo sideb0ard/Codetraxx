@@ -15,17 +15,19 @@ codetraxx.subscribe( 'bpm', function(msg) {
     console.log("hola");
     b = baudio(function (t) {
       //var multiplier = (t / 2) ;
-      var multiplier = (t) ;
+      var multiplier = (t * (bpm / 60)) ;
       //console.log("T is " + t + " MULTIPLIER is " + multiplier);
 
       var n = 47 / t;
-      var xs = [ 20, 70, 7, 540, n / 300 ];
-      //var xs = [ 540, n / 300 ];
-      // var xs = [ 20, 10, 32, 50, 30 ];
+      //var xs = [ 20, 70, 7, 540, n / 300 ];
+      var xs = [ 40, n / 300, 7 ];
+      //var xs = [ 20, 10, 32, 50, 30 ];
+      //var xs = [ 3,3,3,3,3,3,5,3,77777];
       var x = xs[Math.floor(multiplier*8)%xs.length];
       var f = x + Math.sin(17 * (n % 7));
       //return x * sin(f / 13 ) * 0.02;
-      var vol = "0." + Math.floor(t % 8);
+      //var vol = "0." + Math.floor(t % 8) + 1;
+      var vol = "0." + Math.floor(t % 8) + 1;
       //console.log("VOL: " + vol);
       return sin(x, vol);
 

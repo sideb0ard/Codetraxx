@@ -10,30 +10,30 @@ function createConnection(config) {
 }
 
 function safeEndConnection(connection) {
-    connection.queue('tmp-' + Math.random(), {exclusive: true}, function(){
-        connection.end();
-        connection.once('error', function(e){
-            if (e.code !== 'ECONNRESET' || e.syscall !== 'write')
-                throw e;
-        });
+  connection.queue('tmp-' + Math.random(), {exclusive: true}, function(){
+    connection.end();
+    connection.once('error', function(e){
+      if (e.code !== 'ECONNRESET' || e.syscall !== 'write')
+        throw e;
     });
+  });
 };
 
 
 function publish(exchg, msg, conn) {
   if (conn === undefined) {
-    conn = createConnection({ host: config.rabbitUrl});
+    conn = createConnection(config);
   }
-  conn = createConnection(config);
   conn.on('ready', function () {
    // console.log("Sending message..." + JSON.stringify(msg));
     conn.exchange(exchg, {type: 'fanout', autoDelete: true},
       function(exchange){
         exchange.publish('',msg);
+        safeEndConnection(conn);
         //exchange.disconnect();
-        //safeEndConnection(conn);
     });
   });
+  //conn.end();
 }
 
 function subscribe(exchg, musicalFunction, conn) {
