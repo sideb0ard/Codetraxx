@@ -3,10 +3,18 @@
 var codetraxx = require('./codetraxx_lib.js');
 var exec = require('child_process').exec;
 
-SOUNDFX1 = "wavs/TrpDrumz/FX/FX_13_.wav";
-SOUNDFX2 = "wavs/TrpDrumz/FX/FX_22_.wav";
-SOUNDFX3 = "wavs/TrpDrumz/FX/FX_2_Gunshot.wav";
-SOUNDFX4 = "wavs/TrpDrumz/Sounds/ComputerArp2.wav";
+//SOUNDFX1 = "wavs/TrpDrumz/FX/FX_13_.wav";
+//SOUNDFX2 = "wavs/TrpDrumz/FX/FX_22_.wav";
+//SOUNDFX3 = "wavs/TrpDrumz/FX/FX_2_Gunshot.wav";
+//SOUNDFX4 = "wavs/TrpDrumz/Sounds/ComputerArp2.wav";
+SOUNDFX1 = "wavs/TrpDrumz/FX/FX_39_.wav";
+SOUNDFX2 = "wavs/TrpDrumz/FX/FX_40_.wav";
+SOUNDFX3 = "wavs/TrpDrumz/FX/FX_41_.wav";
+SOUNDFX4 = "wavs/TrpDrumz/FX/FX_41_.wav";
+//SOUNDFX1 = "wavs/TrpDrumz/Sounds/ChipSound.wav";
+//SOUNDFX2 = "wavs/TrpDrumz/Sounds/ChipSound.wav";
+//SOUNDFX3 = "wavs/TrpDrumz/Sounds/ChipSound.wav";
+//SOUNDFX4 = "wavs/TrpDrumz/Sounds/ChipSound.wav";
 //var SNARE = "wavs/SnareDrum0012.aif";
 var SNARES = ["wavs/TrpDrumz/Snares/Snare_9.wav","wavs/TrpDrumz/Snares/Snare_6.wav","wavs/TrpDrumz/Snares/Snare_17.wav"];
 

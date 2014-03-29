@@ -22,13 +22,12 @@ codetraxx.subscribe( 'bpm', function(msg) {
 
   if (/[134567]/.test(beat) && /[134]/.test(microTick) )  {
   //if (/[16]/.test(beat) && /[134]/.test(microTick) )  {
-    console.log("MICROTICK IS A " + typeof microTick);
     if (beat % 7 === 0 || beat % 3 === 0 ) {
       console.log("Modulo beatches!");
       //exec("play " + HATZ + " bass +" + tickCounter % .23);
     } else {
       exec("play " + HATZ + " " + HATZ2 + " bass +" + tickCounter % .3);
-      // playrrr(HATZ);
+      playrrr(HATZ);
     }
   } else if (/[15]/.test(beat) && /[123]/.test(microTick) ) {
       //exec("play " + KICK + " bass +3");

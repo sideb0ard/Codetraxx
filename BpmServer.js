@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 var amqp = require('./codetraxx_lib');
 
-var bpm = 100;
+var bpm = 90;
 console.log("Setting bpm to " + bpm);
 
 var MIN = 60000;

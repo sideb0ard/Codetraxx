@@ -13,27 +13,31 @@ codetraxx.subscribe( 'bpm', function(msg) {
   //if (/[15]/.test(beat) && /[1]/.test(microTick) && !nowplaying) {
   if ( /[1]/.test(microTick) && !nowplaying) {
    nowplaying = 1;
-   var b = baudio(function (tt, tickCounter) {
-     donk = (tickCounter / 57575.678678686786);
-     var t = donk % 5;
+   var b = baudio(function (t) {
+     //donk = (tickCounter / 57575.678678686786);
+     donk = (t * 5786);
+     var tt = donk % 5;
      //var xs = [ 20, t, donk, 240, tickCounter, 20 ];
-     //var xs = [ donk, t, donk, donk, tickCounter, 20 ];
+     //var xs = [ donk, t, donk % tt, tt, 70 ];
+     //var xs = [ 100, 30, 23, donk, 76, 140 ];
+     //var xs = [ 100 % donk, 23, donk, 140 ];
+     //var xs = [ 440 % (donk * tau), ((43 * t) % 3)];
      var xs = [ 13, 24, 35, 7, 6, 8 ];
-     //var xs = [ 1, 1, 1, 1, 7 ];
+     //var xs = [ 13 * donk, 24, 35, 7, 6, 8 ];
+     //var xs = [ 130, 14, 15, 1, 17 ];
 
-     //var speed = tt % 5 > 7 ? 4 : 2;
-     var x = xs[Math.floor( tt * 33) % xs.length]
+     var speed = tt % 5 > 2 ? 4 : 2;
+     //var x = xs[Math.floor( t * 33) % xs.length]
+     var x = xs[Math.floor( t * 27) % xs.length];
      //var z = tt % 8 < 7 ? 1000 : 80;
 
+     vol = "0." + (Math.floor(t % 0.4) + 1);
      //var f = x + Math.sin(z * (t % 1));
-     var multi = ( 47 % (tt * ( bpm / 60)));
+     //var multi = ( 47 % (t * ( bpm / 60)));
+     var multi = ( t * ( bpm / 60));
 
-     return (
-           //0.74 * ( sin(100) * sin(multi) )
-           sin(multi) *  0.13
-           // sin(multi) * sin(x) *  0.0023
-           //sin(multi) * sin(x) *  sin(1)
-     );
+     return(sin(x) *  vol);
+     //return(sin(x) *  0);
 
       function sin (x) {
           return Math.sin(tau * multi * x);

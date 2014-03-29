@@ -14,6 +14,7 @@ codetraxx.subscribe( 'bpm', function(msg) {
   if (/[15]/.test(beat) && /[1]/.test(microTick) && !nowplaying) {
    nowplaying = 1;
    var b = baudio(function (t) {
+     console.log(t);
      multi = (t * (bpm / 60));
       donk = (t % 4 / 57575.678678686786);
      // var t = donk % 5;
@@ -30,7 +31,7 @@ codetraxx.subscribe( 'bpm', function(msg) {
 
      // var f = x + sin(z * (t % 1));
 
-     vol = "0." + (Math.floor(t % 4) + 1);
+     vol = "0." + (Math.floor(t % 0.4) + 1);
      return sin(x * 4) * vol;
      
 
