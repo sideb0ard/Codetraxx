@@ -21,6 +21,7 @@ codetraxx.subscribe( 'bpm', function(msg) {
     b = baudio(function (t) {
       //var multiplier = (t / 2) ;
       var multiplier = (t * (bpm / 60)) ;
+      var relativeTime = bpm / 60;
       //console.log("T is " + t + " MULTIPLIER is " + multiplier);
       //
 
@@ -35,12 +36,12 @@ codetraxx.subscribe( 'bpm', function(msg) {
       //var vol = "0." + Math.floor(t % 8) + 1;
       var vol = "0." + Math.floor(t % 8) + 2;
       //console.log("VOL: " + vol);
-      return sin(x) * vol;
+      //return sin(x) * vol;
+      return saw(x) * saw(x+relativeTime) * vol;
 
-      function sin (freq) {
-        //console.log("VOL is " + vol);
-        return Math.sin( tau * multiplier * freq);
-      }
+      function sin (x) { return Math.sin( tau * t * x); }
+      function square (x) { return sin(x) > 0 ? 1 : -1; }
+      function saw (x) { return 1-2*(t%(1/x))*x ;}
     })
 
   b.play();

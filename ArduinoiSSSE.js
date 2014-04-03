@@ -8,14 +8,15 @@ var note = 0; // to come from arduino - serial queue
 
 codetraxx.subscribe('serial', function(msg) {
   note = msg.lightsensor;
-  console.log("LIGHT!: " + note);
+  //console.log("LIGHT!: " + note);
 });
 
 codetraxx.subscribe( 'bpm', function(msg) {
   var bpm = msg.bpm, microTick = msg.microTick, tickCounter = msg.tickCounter, beat = msg.beat;
   // console.log("BPM: " + bpm + " BEAT: " + beat + " MICROTICK: " + microTick + " TICKCOUNTER: " + tickCounter);
 
-  if (beat === 1 && microTick === 1 && !nowplaying) {
+  //if (beat === 1 && microTick === 1 && !nowplaying) {
+  if (microTick === 1 && !nowplaying) {
     nowplaying = 1;
     console.log("hola");
     b = baudio(function (t) {
@@ -23,7 +24,7 @@ codetraxx.subscribe( 'bpm', function(msg) {
 
       var vol = "0." + Math.floor(t % 8) + 2;
       //return sin(note) * vol;
-      return square(note % 20) * vol;
+      return square(note) * 0.4;
       //return saw(note) * vol;
       //return sin(note % 8) * saw(note % 10) * vol;
 

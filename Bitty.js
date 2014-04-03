@@ -71,7 +71,7 @@ codetraxx.subscribe( 'bpm', function(msg) {
      }
 
      function sin(x) {
-         return Math.sin(tau * multi * x);
+         return Math.sin(tau * t * x);
      }
     });
     b.play();
