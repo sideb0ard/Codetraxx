@@ -13,12 +13,13 @@ codetraxx.subscribe( 'bpm', function(msg) {
   var bpm = msg.bpm, microTick = msg.microTick, tickCounter = msg.tickCounter, beat = msg.beat;
   console.log("BPM: " + bpm + " MICROTICK: " + microTick + " TICK COUNTER: " + tickCounter + " and BEAT is: " + beat);
   randNum = codetraxx.randyNum(5);
-  if (/[12345678]/.test(beat) || /[34]/.test(microTick) && Math.round(Math.random()*1)) {
-    console.log("SKIP!");
+  if (/[13]/.test(beat) || /[34]/.test(microTick) && Math.round(Math.random()*1)) {
+    exec("play " + HATZ[0]);
+    //console.log("SKIP!");
   } else {
+    console.log("PLAY!");
     setTimeout( function() {
       return playrrr(HATZ[1],tickCounter);
     },randNum);
-    // exec("play " + HATZ[0]);
   }
 });

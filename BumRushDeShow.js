@@ -3,8 +3,10 @@
 var codetraxx = require('./codetraxx_lib.js');
 var exec = require('child_process').exec;
 
-var KICK = "wavs/TrpDrumz/Kicks/Kick_7_.wav";
-var KICK2 = "wavs/WuTangDrumz/WTC_kyKX/Wu-RZA-Kick69.wav";
+//var KICK = "wavs/TrpDrumz/Kicks/Kick_7_.wav";
+//var KICK2 = "wavs/WuTangDrumz/WTC_kyKX/Wu-RZA-Kick69.wav";
+var KICK = "wavs/TrpDrumz/808/808_18.wav";
+var KICK2 = "wavs/TrpDrumz/808/SubBass1.wav";
 var KICK3 = "wavs/KickDrum0013.aif";
 var SAMPLEZ = "wavs/TrpDrumz/DJDrops/DjDrop.wav";
 var SNARE = "wavs/SnareDrum0012.aif";
@@ -22,8 +24,8 @@ codetraxx.subscribe( 'bpm', function(msg) {
   var bpm = msg.bpm, microTick = msg.microTick, tickCounter = msg.tickCounter, beat = msg.beat;
   console.log("BPM: " + bpm + " MICROTICK: " + microTick + " TICK COUNTER: " + tickCounter + " and BEAT is: " + beat);
 
-  //if (/[13456]/.test(beat) && /[12]/.test(microTick) ) {
-  if (/[137]/.test(beat) && /[14]/.test(microTick) ) {
+  if (/[13456]/.test(beat) && /[12]/.test(microTick) ) {
+  //if (/[137]/.test(beat) && /[14]/.test(microTick) ) {
   //if (/[1]/.test(beat) && /[1]/.test(microTick) ) {
   //if (/[13]/.test(beat) && /[1]/.test(microTick) ) {
     console.log("MICROTICK IS A " + typeof microTick);

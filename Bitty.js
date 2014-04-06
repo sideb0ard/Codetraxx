@@ -4,6 +4,13 @@ var codetraxx = require('./codetraxx_lib.js');
 var nowplaying = 0;
 var baudio  = require('baudio');
 
+var note = 0; // to come from arduino - serial queue
+
+codetraxx.subscribe('serial', function(msg) {
+    note = msg.lightsensor;
+    console.log("LIGHT!: " + note);
+ });
+
 //t=1;
 //for(;;t++) {
 //  console.log((t*5&t>>7)|(t*3&t>>10));
@@ -45,8 +52,9 @@ codetraxx.subscribe( 'bpm', function(msg) {
      //return sin(x * 4) * vol;
      //
      //console.log(sin(bitly(t)));
-     //return(sin(bitly(t))) * vol;
      return(sin(bitly(t))) * vol;
+     //return(sin(bitly(t * note))) * vol;
+     //return(sin(bitly(t * note))) * vol;
      //return sin(t);
      //console.log(bitly(t));
      //return bitly(t);
@@ -54,11 +62,11 @@ codetraxx.subscribe( 'bpm', function(msg) {
      function bitly(x) {
        //return((x*5&x>>7)|(x*3&x>>10));
        //x = x *204;
-       x = x * 74;
+       //x = x * 74 + note;
        //x = x * 774;
        //x = x * 104;
        //x = x * 144;
-       //return((x*5&x>>7));
+       return((x*3/5&x>>7));
        //return((x*3&x>>4));
        //return((x*2&x>>7)|(x*3&x>>10));
        //return((x*2&x>>7)|(x*43&x>>10));
@@ -67,6 +75,8 @@ codetraxx.subscribe( 'bpm', function(msg) {
        //return((x*342&x>>7)|(x*3&x>>130));
        //return((x*11&x>>7)|(x*3&x>>10));
        //return((x*11&x>>4)|(x*3&x>>10)&x<<500000);
+       //return((x*11&x>>4)|(x*3&x>>10)&(x<<500000|x%77));
+       //return((x*11&x>>4)|(x*3&x>>10)&(x<<500000|x%77));
        return((x*11&x>>4)|(x*3&x>>10)&(x<<500000|x%77));
      }
 

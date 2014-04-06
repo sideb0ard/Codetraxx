@@ -28,8 +28,9 @@ codetraxx.subscribe( 'bpm', function(msg) {
       var n = 47 / t;
       //var xs = [ 20, 70, 7, 540, n / 300 ];
       //var xs = [ 40, n / 300, 7 ];
-      var xs = [ 20, 10, 32, 50, 30 ];
-      //var xs = [ 3,3,3,3,3,3,5,3,77777];
+      //var xs = [ 20/5, 13/3, 33/7, 5023/32, 30/5 ];
+      //var xs = [ 3/2,353,5,3,77777];
+      var xs = [ 3,353,5,3,77];
       var x = xs[Math.floor(multiplier*8)%xs.length];
       var f = x + Math.sin(17 * (n % 7));
       //return x * sin(f / 13 ) * 0.02;
@@ -37,7 +38,10 @@ codetraxx.subscribe( 'bpm', function(msg) {
       var vol = "0." + Math.floor(t % 8) + 2;
       //console.log("VOL: " + vol);
       //return sin(x) * vol;
-      return saw(x) * saw(x+relativeTime) * vol;
+      //return (saw(x) * saw(x+relativeTime) + sin(note)) * vol;
+      return (saw(x) * saw(x+relativeTime) + sin(x)) * vol;
+      //return (saw(x * note) * saw(x+relativeTime) + sin(note)) * vol;
+      //return ((saw(x * sin(note % 23)) * saw(x+relativeTime) + sin(note)) / 2) * vol;
 
       function sin (x) { return Math.sin( tau * t * x); }
       function square (x) { return sin(x) > 0 ? 1 : -1; }
