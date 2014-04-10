@@ -4,7 +4,7 @@ var codetraxx = require('./codetraxx_lib.js');
 var exec = require('child_process').exec;
 
 function playrrr(wav, tickCounter ){
-    exec("play " + wav + " bass +" + tickCounter % 7 + " echo 0.8 0.88 " + tickCounter % 60 + " 0.4");
+    exec("play " + wav + " bass +" + tickCounter % 3 + " echo 0.8 0.88 " + tickCounter % 60 + " 0.4");
 }
 
 HATZ = ["wavs/WuTangDrumz/Perkussin/WU_HH_113.wav","wavs/WuTangDrumz/Perkussin/Wu_1p_108_.wav", "wavs/WuTangDrumz/Perkussin/Wu_1p_69_.wav", "wavs/WuTangDrumz/Perkussin/Wu-RZA-Hat71.wav"]
