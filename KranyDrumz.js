@@ -14,14 +14,14 @@ var SAMPLEZ = "wavs/TrpDrumz/Sounds/GunCockback.wav";
 var CLAP = "wavs/TrpDrumz/Claps/Clap14.wav";
 
 function playrrr(wav, counter){
-  //exec("play " + wav + " bass +" + counter % 7);
+  exec("play " + wav + " bass +" + counter % 7);
   //exec("play " + wav + " bass +" + counter % 2 + " echo 0.8 0.88 " + counter % 60 + " 0.4");
   //exec("play " + wav + " bass +" + counter % 0.7 + " allpass " + counter % 0.17 + " 11 treble " + (counter % 65 + 2));
   //exec("play " + wav + " bass +" + counter % 7 + 10 + " allpass " + (counter % 47) + 20  + " 1 treble " + counter % 36) + 2; // DANGEROUS!
   //exec("play " + wav + " bass +" + counter % 7 + " allpass " + (counter % 47) + 20  + " 1 treble " + counter % 36) + 2; // DANGEROUS!
   //exec("play " + wav + " bass +" + counter % 6 + 4 + " allpass " + (counter % 7) + 2  + " 1 treble " + counter % 36) + 2;
   //exec("play " + wav + " bass +" + counter % 0.13 + 6 + " allpass " + (counter % 17) + 137  + " 13 treble " + counter % 236) + 220;
-  exec("play " + wav + " bass +" + counter % 0.13 + 2 + " allpass " + (counter % 17) + 37  + " 13 treble " + counter % 136) + 120; // DANG
+  //exec("play " + wav + " bass +" + counter % 0.13 + 2 + " allpass " + (counter % 17) + 37  + " 13 treble " + counter % 136) + 120; // DANG
   //exec("play " + wav + " bass +" + counter % 13 + 6 + " allpass " + (counter % 17) + 37  + " 13 treble " + counter % 36) + 20;
 }
 
