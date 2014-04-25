@@ -42,7 +42,7 @@ codetraxx.subscribe( 'bpm', function(msg) {
      //return sin(441) * sin(4) * vol;
      //return sin(m) * sin(m + diff) * 2;
      //return saw(m/3) * saw((m + diff) * sin(m/3 * 7)) * 2;
-     return sin(m/3) * sin((m + diff) * sin(m/3 * 7)) * vol;
+     return sin(m/3) * sin((m + diff) * sin(m/3 * 7)) * vol * 0.1;
      //return sin(441) * (sin(3) + sin(4)) / 2;
 
       //function sin (x) { return Math.sin(tau * multi * x); }

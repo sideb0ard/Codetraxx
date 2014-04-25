@@ -6,6 +6,8 @@ var exec = require('child_process').exec;
 //var KICK = "wavs/TrpDrumz/Kicks/Kick_7_.wav";
 //var KICK2 = "wavs/WuTangDrumz/WTC_kyKX/Wu-RZA-Kick69.wav";
 
+var TRAPZ = "wavs/TrpDrumz/Percussions/trapbell";
+var TOMZ = ["/Users/thorsten/Code/Codetraxx/wavs/TrpDrumz/Percussions/808_Tom_2.wav"];
 var KICKZ = ["wavs/KickDrum0007.aif", "wavs/KickDrum0006.aif", "wavs/TrpDrumz/808/808_18.wav", "wavs/TrpDrumz/808/SubBass1.wav", "wavs/KickDrum0013.aif"];
 //var KICKZ = ["wavs/TrpDrumz/Kicks/Kick_23_.wav", "wavs/TrpDrumz/Kicks/Kick_28_.wav" , "wavs/TrpDrumz/Kicks/Kick_18_.wav", "wavs/TrpDrumz/Kicks/Kick_34_.wav"]; 
 var SNAREZ = ["wavs/TrpDrumz/Snares/Snare_9.wav", "wavs/TrpDrumz/Snares/Snare_26.wav", "wavs/TrpDrumz/Snares/Snare_38.wav" ];
@@ -14,6 +16,7 @@ var SAMPLEZ = "wavs/TrpDrumz/Sounds/GunCockback.wav";
 var CLAP = "wavs/TrpDrumz/Claps/Clap14.wav";
 
 function playrrr(wav, counter){
+  console.log("PLAYING" + wav);
   //exec("play " + wav + " bass +" + counter % 7);
   exec("play " + wav + " bass +" + counter % 2 + " echo 0.8 0.88 " + counter % 60 + " 0.4");
   //exec("play " + wav + " bass +" + counter % 0.7 + " allpass " + counter % 0.17 + " 11 treble " + (counter % 65 + 2));
@@ -40,9 +43,7 @@ codetraxx.subscribe( 'bpm', function(msg) {
   //if (/[1]/.test(beat) && /[1]/.test(microTick) ) {
   //if (/[13]/.test(beat) && /[1]/.test(microTick) ) {
     console.log("MICROTICK IS A " + typeof microTick);
-    if (Math.round(Math.random()*1)) {
-      playrrr(KICKZ[0],tickCounter);
-    }
+    //playrrr(KICKZ[0],tickCounter);
   }
   //if (/[35]/.test(beat) && /[13]/.test(microTick) ) {
   var randClick= randyNum(3);
@@ -52,20 +53,20 @@ codetraxx.subscribe( 'bpm', function(msg) {
     //exec("play " + KICKZ[2] + " bass +3 allpass " + tickCounter % 37 + " 1 treble " + tickCounter % 76);
   }
   //if (/[26]/.test(beat) && /[12]/.test(microTick) ) {
-  if (/[2468]/.test(beat) && /[1]/.test(microTick) ) {
+  if (/[2468]/.test(beat) && /[13]/.test(microTick) ) {
     console.log("zzzzZMICROK IS A " + typeof microTick);
-    playrrr(CLAP, tickCounter);
     randNum = randyNum(7);
+    trapzNum = tickCounter % 5;
     setTimeout( function() {
-      return playrrr(SNAREZ[1], tickCounter);
+      return playrrr(TRAPZ + trapzNum + ".wav", tickCounter);
     }, randNum);
   }
-  if (/[24]/.test(beat) && /[1]/.test(microTick) ) {
-    if (randyNum(23) > 22) {
-      setTimeout( function() {
-        //return playrrr(SAMPLEZ,tickCounter);
-        return playrrr(SNAREZ[2],tickCounter);
-      }, randNum);
-    }
-  }
+  //if (/[245]/.test(beat) && /[1]/.test(microTick) ) {
+  //  if (randyNum(23) > 22) {
+  //    setTimeout( function() {
+  //      //return playrrr(SAMPLEZ,tickCounter);
+  //      return playrrr(SNAREZ[2],tickCounter);
+  //    }, randNum);
+  //  }
+  //}
 });

@@ -11,6 +11,7 @@ SOUNDFX1 = "wavs/TrpDrumz/FX/FX_36_RZR.wav";
 SOUNDFX2 = "wavs/TrpDrumz/FX/FX_40_.wav";
 SOUNDFX3 = "wavs/TrpDrumz/FX/FX_41_.wav";
 SOUNDFX4 = "wavs/TrpDrumz/Chants/Chant_21.wav";
+SOUNDFX4 = "wavs/TrpDrumz/Chants/Chant_25.wav";
 //SOUNDFX1 = "wavs/TrpDrumz/Sounds/ChipSound.wav";
 //SOUNDFX2 = "wavs/TrpDrumz/Sounds/ChipSound.wav";
 //SOUNDFX3 = "wavs/TrpDrumz/Sounds/ChipSound.wav";
@@ -29,7 +30,7 @@ codetraxx.subscribe( 'bpm', function(msg) {
 
   if (/[1]/.test(beat) && microTick == 3 && Math.round(Math.random()*1)) {
     console.log("MICROTICK IS A " + typeof microTick);
-    playrrr(SOUNDFX1);
+    playrrr(SOUNDFX1, tickCounter);
     //if (tickCounter % 7 === 0 || beat % 3 === 0 ) {
     //  console.log("Modulo beatches!");
     //} else {
@@ -43,6 +44,8 @@ codetraxx.subscribe( 'bpm', function(msg) {
     //setTimeout( function() {
     //  return playrrr(CUR_SNARE);
     //},randNum);
+    playrrr(SOUNDFX5, tickCounter);
+
   } else if (/[37]/.test(beat) && /[1]/.test(microTick) && Math.round(Math.random()*1)) {
     console.log("SNEAKY!");
     playrrr(SOUNDFX4, tickCounter);
