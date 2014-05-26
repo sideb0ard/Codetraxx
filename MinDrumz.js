@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var codetraxx = require('./codetraxx_lib.js');
+var codetraxx = require('beatduino-helpers');
 var exec = require('child_process').exec;
 
 //var KICK = "wavs/TrpDrumz/Kicks/Kick_7_.wav";
@@ -42,7 +42,7 @@ codetraxx.subscribe( 'bpm', function(msg) {
     console.log("MICROTICK IS A " + typeof microTick);
     if (Math.round(Math.random()*1)) {
       //playrrr(KICKZ[0],tickCounter);
-      playrrr(KICKZ[4],tickCounter);
+      //playrrr(KICKZ[4],tickCounter);
     }
   }
   //if (/[35]/.test(beat) && /[13]/.test(microTick) ) {

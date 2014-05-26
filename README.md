@@ -26,7 +26,7 @@ Clone this and install the needed node modules::
 ```
 git clone https://github.com/sideb0ard/Codetraxx.git
 cd Codetraxx
-npm install
+npm install beatduino-helpers
 ```
 Done! Now to start making noise, you need something to 
 synchronize to - we're using a BPM Server which sends out 

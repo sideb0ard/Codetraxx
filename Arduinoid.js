@@ -23,12 +23,13 @@ var serialPort = new sp("/dev/tty.usbmodem1411", {
 });
 
 serialPort.on("open", function () {
-  //console.log('open');
+  console.log('open');
   serialPort.on('data', function(data) {
     cleanData = JSON.stringify(data);
     cleanData.split(",").forEach(function(c) {
       c = c.replace(/[^0-9\.]+/g, '');
-      var msg = {"lightsensor": c};
+      c = Math.floor(c/5);
+      var msg = {"pot": c};
       console.log("Sending msg -- " + JSON.stringify(msg));
       codetraxx.publish('serial', msg);
     });
