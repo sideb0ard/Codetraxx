@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var codetraxx = require('./codetraxx_lib.js');
+var codetraxx = require('beatduino-helpers');
 var baudio  = require('baudio');
 var serialport = require("serialport");
 

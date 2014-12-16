@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var codetraxx = require('./codetraxx_lib.js');
+var codetraxx = require('beatduino-helpers');
 var nowplaying = 0;
 var baudio  = require('baudio');
 var tau = 2 * Math.PI;

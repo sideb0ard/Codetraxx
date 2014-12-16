@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var codetraxx = require('./codetraxx_lib.js');
+var codetraxx = require('beatduino-helpers');
 var exec = require('child_process').exec;
 
 var KICK = "wavs/WuTangDrumz/WTC_kyKX/Wu-RZA-Kick64.wav";

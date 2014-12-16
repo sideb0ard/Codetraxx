@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var codetraxx = require('./codetraxx_lib.js');
+var codetraxx = require('beatduino-helpers');
 var exec = require('child_process').exec;
 
 //SOUNDFX1 = "wavs/TrpDrumz/FX/FX_13_.wav";
