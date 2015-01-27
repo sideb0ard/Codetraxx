@@ -1,0 +1,40 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/sideboard/.nvm/v0.11.14/bin/node',
+1 verbose cli   '/Users/sideboard/.nvm/v0.11.14/bin/npm',
+1 verbose cli   'shrinkwrap' ]
+2 info using npm@2.0.0
+3 info using node@v0.11.14
+4 verbose stack Error: Problems were encountered
+4 verbose stack Please correct and try again.
+4 verbose stack missing: inherits@~2.0.1, required by codetraxx@0.0.1
+4 verbose stack missing: readable-stream@*, required by codetraxx@0.0.1
+4 verbose stack missing: midi@~0.6.0, required by asynth@0.1.1
+4 verbose stack invalid: readable-stream@1.0.27-1 /Users/sideboard/NewCodez/Codetraxx/node_modules/serialport/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/readable-stream
+4 verbose stack invalid: string_decoder@0.10.25-1 /Users/sideboard/NewCodez/Codetraxx/node_modules/serialport/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/readable-stream/node_modules/string_decoder
+4 verbose stack extraneous: sprintf-js@0.0.7 /Users/sideboard/NewCodez/Codetraxx/node_modules/sprintf-js
+4 verbose stack     at shrinkwrap_ (/Users/sideboard/.nvm/v0.11.14/lib/node_modules/npm/lib/shrinkwrap.js:30:15)
+4 verbose stack     at /Users/sideboard/.nvm/v0.11.14/lib/node_modules/npm/lib/shrinkwrap.js:24:5
+4 verbose stack     at /Users/sideboard/.nvm/v0.11.14/lib/node_modules/npm/lib/ls.js:46:30
+4 verbose stack     at /Users/sideboard/.nvm/v0.11.14/lib/node_modules/npm/node_modules/read-installed/read-installed.js:138:5
+4 verbose stack     at /Users/sideboard/.nvm/v0.11.14/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+4 verbose stack     at cb (/Users/sideboard/.nvm/v0.11.14/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+4 verbose stack     at /Users/sideboard/.nvm/v0.11.14/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+4 verbose stack     at cb (/Users/sideboard/.nvm/v0.11.14/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+4 verbose stack     at /Users/sideboard/.nvm/v0.11.14/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+4 verbose stack     at cb (/Users/sideboard/.nvm/v0.11.14/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+5 verbose cwd /Users/sideboard/NewCodez/Codetraxx
+6 error Darwin 13.4.0
+7 error argv "/Users/sideboard/.nvm/v0.11.14/bin/node" "/Users/sideboard/.nvm/v0.11.14/bin/npm" "shrinkwrap"
+8 error node v0.11.14
+9 error npm  v2.0.0
+10 error Problems were encountered
+10 error Please correct and try again.
+10 error missing: inherits@~2.0.1, required by codetraxx@0.0.1
+10 error missing: readable-stream@*, required by codetraxx@0.0.1
+10 error missing: midi@~0.6.0, required by asynth@0.1.1
+10 error invalid: readable-stream@1.0.27-1 /Users/sideboard/NewCodez/Codetraxx/node_modules/serialport/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/readable-stream
+10 error invalid: string_decoder@0.10.25-1 /Users/sideboard/NewCodez/Codetraxx/node_modules/serialport/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/readable-stream/node_modules/string_decoder
+10 error extraneous: sprintf-js@0.0.7 /Users/sideboard/NewCodez/Codetraxx/node_modules/sprintf-js
+11 error If you need help, you may report this error at:
+11 error     <http://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]
