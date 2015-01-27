@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 var amqp = require('beatduino-helpers');
 
-var bpm = 80;
+var bpm = 70;
 //var bpm = 105;
 console.log("Setting bpm to " + bpm);
 
