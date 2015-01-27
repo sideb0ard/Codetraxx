@@ -10,6 +10,7 @@
   },
   "dependencies" : {
     "beatduino-helpers": "*",
+    "inherits": "~2.0.1",
     "readable-stream": "*",
     "node-gyp": "*",
     "amqp": "0.1.x",
