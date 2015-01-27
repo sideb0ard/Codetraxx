@@ -9,6 +9,7 @@
     "url" : "https://github.com/sideb0ard/Codetraxx"
   },
   "dependencies" : {
+    "beatduino-helpers": "*",
     "node-gyp": "*",
     "amqp": "0.1.x",
     "isarray": "*",

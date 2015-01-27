@@ -22,7 +22,7 @@ codetraxx.subscribe( 'bpm', function(msg) {
     console.log("MICROTICK IS A " + typeof microTick);
     playrrr(KICK2);
   } else if (/[7]/.test(beat) && microTick == 3) {
-      exec("play " + KICK1 + " bass +3");
+      exec("play " + KICK3 + " bass +3");
   } else if (/[2468]/.test(beat) && microTick == 1) {
     randNum = codetraxx.randyNum(4);
     setTimeout( function() {
